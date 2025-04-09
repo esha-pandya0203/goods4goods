@@ -50,7 +50,7 @@ if st.button("Act as Emma Johnson, a user of Goods4Goods",
     st.session_state['first_name'] = 'Emma'
     st.session_state['user_id'] = 1
     logger.info("Logging in as Emma Johnson User Persona")
-    st.switch_page('pages/User_Profile.py')
+    st.switch_page('pages/User_Home.py')
 
 if st.button("Act as John, a Political Strategy Advisor", 
             type = 'primary', 
