@@ -58,3 +58,50 @@ def get_offer_fairness(offerID):
     the_response.status_code = 200
     return the_response
 
+# ------------------------------------------------------------
+# This is a POST route to make a new offer.
+@offers.route('/propose', methods=['POST'])
+def propose_offer():
+    
+    the_data = request.json
+    current_app.logger.info(the_data)
+
+    offering_user = the_data['offering_user']
+    receiving_user = the_data['receiving_user']
+    status = the_data['status']
+    item_offered_id = the_data['item_offered_id']
+    item_requested_id = the_data['item_requested_id']
+    query = f'''
+        INSERT INTO Offer (offering_user,
+                            receiving_user,
+                            status,
+                            item_offered_id,
+                            item_requested_id)
+        VALUES ('{offering_user}', '{receiving_user}', '{status}', {str(item_offered_id)}, {str(item_requested_id)})
+    '''
+    current_app.logger.info(query)
+
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
+    
+    response = make_response("Successfully created offer")
+    response.status_code = 200
+    return response
+
+#------------------------------------------------------------
+# Update offer status with offerID
+# TO DO: change boolean active based on status
+@offers.route('/update-status', methods=['PUT'])
+def deactivate_item():
+    current_app.logger.info('PUT /deactivate route')
+    offer_info = request.json
+    offer_id = offer_info['offer_id']
+    status = offer_info['status']
+
+    query = 'UPDATE item SET status = %s where id = %s'
+    data = (status, offer_id)
+    cursor = db.get_db().cursor()
+    r = cursor.execute(query, data)
+    db.get_db().commit()
+    return 'offer status updated!'
