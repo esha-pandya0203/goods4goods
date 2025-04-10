@@ -34,7 +34,7 @@ def UserOffersNav():
     st.sidebar.page_link("pages/User_Offers.py", label="View Offers", icon="🔀")
 
 def UserFindItemsNav():
-    st.sidebar.page_link("pages/02_Map_Demo.py", label="Map Demonstration", icon="🗺️")
+    st.sidebar.page_link("pages/User_Find_Items.py", label="View Other Items", icon="🪞")
 
 def UserTransHistoryNav():
     st.sidebar.page_link("pages/02_Map_Demo.py", label="Map Demonstration", icon="🗺️")

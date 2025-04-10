@@ -8,32 +8,63 @@ from modules.nav import SideBarLinks
 st.set_page_config(layout = 'wide')
 SideBarLinks()
 
+def get_user_offers(user_id):
+    response = requests.get(f"http://api-test:4000/offers/{user_id}")
+    if response.status_code == 200:
+        return response.json()
+    else:
+        st.error("Failed to fetch offers.")
+        return []
+
+def update_offer_status(offer_id, status, item_offered_id, item_requested_id):
+    payload = {
+        "offer_id": offer_id,
+        "status": status,
+        "offered_item": item_offered_id,
+        "requested_item": item_requested_id
+    }
+    response = requests.put("http://api-test:4000/offers/status", json=payload)
+    if response.status_code == 200:
+        st.success("Status updated successfully!")
+    else:
+        st.error("Failed to update status.")
+
+def get_fairness_score(offer_id):
+    response = requests.get(f"http://api-test:4000/offers/fairness/{offer_id}")
+    if response.status_code == 200:
+        return response.json()[0]["Fairness Score"]
+    else:
+        st.warning("Couldn't fetch fairness score.")
+        return None
+
+def orgazine_offers(offers, user_id):
+    received_offers = []
+    proposed_offers = []
+    rejected_offers = []
+    accepted_offers = []
+
+    for offer in offers:
+        if offer["Status"].lower() == "rejected":
+            rejected_offers.append(offer)
+        elif offer["Status"].lower() == "accepted":
+            accepted_offers.append(offer)
+        elif offer["Offering Trader ID"] == user_id:
+            proposed_offers.append(offer)
+        else:
+            received_offers.append(offer)
+
+    return received_offers, proposed_offers, rejected_offers, accepted_offers
+
 user_id = st.session_state["user_id"]
 
 # Fetch all offers for this user
-offers_response = requests.get(f"http://api-test:4000/offers/{user_id}")
-offers = offers_response.json()
+received_offers, proposed_offers, rejected_offers, accepted_offers = orgazine_offers(get_user_offers(user_id), user_id)
 
-# Separate offers
-received_offers = []
-proposed_offers = []
-rejected_offers = []
-accepted_offers = []
-
-for offer in offers:
-    if offer["Status"].lower() == "rejected":
-        rejected_offers.append(offer)
-    elif offer["Status"].lower() == "accepted":
-        accepted_offers.append(offer)
-    elif offer["Offering Trader ID"] == user_id:
-        proposed_offers.append(offer)
-    else:
-        received_offers.append(offer)
-
-# Set up tabs to split offers
+# Tabs to view different offers
+st.title("Your Offers")
 tab1, tab2, tab3, tab4 = st.tabs(["📥 Received", "📤 Proposed", "❌ Rejected", "✅ Accepted"])
 
-# Function to display offer card
+# Function to display offers
 def display_offer_card(offer, user_role, allow_status_change=False, restrict_status_options=None):
     col1, col2 = st.columns([1, 1])
 
@@ -47,12 +78,8 @@ def display_offer_card(offer, user_role, allow_status_change=False, restrict_sta
     st.markdown(f"**Other Trader:** {other_user}")
 
     # Fairness score
-    fairness_resp = requests.get(f"http://api-test:4000/offers/fairness/{offer['Offer ID']}")
-    if fairness_resp.status_code == 200:
-        fairness = fairness_resp.json()[0]["Fairness Score"]
-        st.markdown(f"**Fairness Score:** {fairness}")
-    else:
-        st.warning("Couldn't fetch fairness score.")
+    fairness = get_fairness_score(offer["Offer ID"])
+    st.markdown(f"**Fairness Score:** {fairness}")
 
     if allow_status_change:
         options = restrict_status_options or ["Pending", "Accepted", "Rejected"]
@@ -63,22 +90,10 @@ def display_offer_card(offer, user_role, allow_status_change=False, restrict_sta
             key=f"status_select_{offer['Offer ID']}"
         )
         if st.button("💾 Update Status", key=f"update_btn_{offer['Offer ID']}"):
-            update_payload = {
-                "offer_id": offer["Offer ID"],
-                "status": new_status,
-                "offering_user": offer["Offering Trader ID"],
-                "receiving_user": offer["Receiving Trader ID"],
-                "offered_item": offer["Offered Item"],
-                "requested_item": offer["Requested Item"]
-            }
-            put_resp = requests.put("http://api-test:4000/offers/update-status", json=update_payload)
-            if put_resp.status_code == 200:
-                st.success("Status updated. Refresh to see changes.")
-            else:
-                st.error("Failed to update status.")
+            update_offer_status(offer["Offer ID"], new_status, offer["Offered Item ID"], offer["Requested Item ID"])
     st.markdown("---")
 
-# Tab 1: Received Offers (with status update options)
+# Tab 1: Received Offers 
 with tab1:
     st.header("Offers You Received")
     if not received_offers:
@@ -100,7 +115,7 @@ with tab2:
                     offer,
                     user_role="proposed",
                     allow_status_change=True,
-                    restrict_status_options=["Pending", "Rejected"]  # ← 🔥 Only allow these
+                    restrict_status_options=["Pending", "Rejected"] 
                 )
 
 # Tab 3: Rejected Offers

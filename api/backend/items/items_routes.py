@@ -19,7 +19,25 @@ items = Blueprint('items', __name__)
 def get_items():
     current_app.logger.info('GET /items route')
     cursor = db.get_db().cursor()
-    cursor.execute('''SELECT * FROM Item WHERE active = 1''')
+    cursor.execute('''SELECT * FROM Item 
+                    JOIN User ON Item.posted_by = User.user_id
+                    WHERE active = 1''')
+    
+    theData = cursor.fetchall()
+    
+    the_response = make_response(jsonify(theData))
+    the_response.status_code = 200
+    return the_response
+
+#------------------------------------------------------------
+# Get all active items from the system a user can make offers for
+@items.route('/listings/<userId>', methods=['GET'])
+def get_listing_items(userId):
+    current_app.logger.info('GET /items route')
+    cursor = db.get_db().cursor()
+    cursor.execute('''SELECT * FROM Item 
+                    JOIN User ON Item.posted_by = User.user_id
+                    WHERE active = 1 AND Item.posted_by != {0}'''.format(userId))
     
     theData = cursor.fetchall()
     

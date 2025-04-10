@@ -3,11 +3,8 @@ logger = logging.getLogger(__name__)
 
 import streamlit as st
 from modules.nav import SideBarLinks
-import requests
 
 st.set_page_config(layout = 'wide')
-
-# Show appropriate sidebar links for the role of the currently logged in user
 SideBarLinks()
 
 st.title(f"Welcome , {st.session_state['first_name']}.")
@@ -33,7 +30,7 @@ if st.button('Manage Your Offers',
 if st.button('Search for Items', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/01_World_Bank_Viz.py')
+  st.switch_page('pages/User_Find_Items.py')
 
 if st.button('View Transaction History', 
              type='primary',
