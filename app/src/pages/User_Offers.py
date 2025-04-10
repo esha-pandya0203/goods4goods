@@ -36,6 +36,27 @@ def get_fairness_score(offer_id):
     else:
         st.warning("Couldn't fetch fairness score.")
         return None
+    
+def get_user_rating_for_transaction(user_id, offer_id):
+    response = requests.get(f"http://api-test:4000/ratings/{offer_id}/{user_id}")
+    if response.status_code == 200:
+        return response.json()
+    else:
+        st.error("Failed to fetch user rating.")
+        return None
+
+def rate_transaction(user_id, offer_id, rating, other_user_id):
+    payload = {
+        "rating_for": other_user_id,
+        "rating_by": user_id,
+        "rating_number": rating,
+        "offer_id": offer_id
+    }
+    response = requests.post("http://api-test:4000/ratings", json=payload)
+    if response.status_code == 200:
+        st.success("Rating submitted successfully!")
+    else:
+        st.error("Failed to submit rating.")
 
 def orgazine_offers(offers, user_id):
     received_offers = []
@@ -136,6 +157,27 @@ with tab4:
         st.info("No accepted offers.")
     else:
         for offer in accepted_offers:
+            st.markdown("---")
+            other_user_id = offer["Offering Trader ID"] if role == "received" else offer["Receiving Trader ID"]
+
+            check_ratings = get_user_rating_for_transaction(user_id, offer["Offer ID"])
+            if check_ratings is not None:
+                st.markdown(f"**Your rating for this transaction:** {check_ratings['rating_number']} ⭐")
+            else:
+                st.markdown("**You haven't rated this transaction yet.**")
+                rating = st.slider("Rate out of 5", 1, 5)
+                        
+                if st.button("Submit Rating", key=f"rating_{offer['Offer ID']}"):
+                    rate_transaction(
+                        user_id=user_id,
+                        offer_id=offer["Offer ID"],
+                        rating=rating,
+                        other_user_id=other_user_id)
+
             role = "received" if offer["Receiving Trader ID"] == user_id else "proposed"
             with st.container():
                 display_offer_card(offer, role)
+
+            
+
+            
