@@ -29,15 +29,11 @@ def UserItemsNav():
         "pages/View_User_Items.py", label="View User Items", icon="📦"
     )
 
-
 def UserOffersNav():
     st.sidebar.page_link("pages/User_Offers.py", label="View Offers", icon="🔀")
 
 def UserFindItemsNav():
     st.sidebar.page_link("pages/User_Find_Items.py", label="View Other Items", icon="🪞")
-
-def UserTransHistoryNav():
-    st.sidebar.page_link("pages/02_Map_Demo.py", label="Map Demonstration", icon="🗺️")
 
 
 #### ------------------------ Examples for Role of pol_strat_advisor ------------------------
@@ -118,9 +114,6 @@ def SideBarLinks(show_home=False):
 
             # Show Find Items page link
             UserFindItemsNav()
-
-            # Show Transaction History page link
-            UserTransHistoryNav()
 
         # Show World Bank Link and Map Demo Link if the user is a political strategy advisor role.
         if st.session_state["role"] == "pol_strat_advisor":

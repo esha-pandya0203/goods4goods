@@ -31,8 +31,3 @@ if st.button('Search for Items',
              type='primary',
              use_container_width=True):
   st.switch_page('pages/User_Find_Items.py')
-
-if st.button('View Transaction History', 
-             type='primary',
-             use_container_width=True):
-  st.switch_page('pages/01_World_Bank_Viz.py')
