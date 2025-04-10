@@ -158,10 +158,11 @@ with tab4:
     else:
         for offer in accepted_offers:
             st.markdown("---")
+            role = "received" if offer["Receiving Trader ID"] == user_id else "proposed"
             other_user_id = offer["Offering Trader ID"] if role == "received" else offer["Receiving Trader ID"]
 
             check_ratings = get_user_rating_for_transaction(user_id, offer["Offer ID"])
-            if check_ratings is not None:
+            if check_ratings['rating_number']is not None:
                 st.markdown(f"**Your rating for this transaction:** {check_ratings['rating_number']} ⭐")
             else:
                 st.markdown("**You haven't rated this transaction yet.**")

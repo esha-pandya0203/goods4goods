@@ -70,6 +70,11 @@ if items:
                 st.markdown(f"**Description:** {item['description']}")
                 st.markdown(f"**Target Price:** ${item['target_price']}")
                 st.markdown(f"**Posted By:** {item['firstName']} {item['lastName']}")
+                if st.button("View User Profile", key=f"user_{item['item_id']}"):
+                    st.session_state['view_user_id'] = item['posted_by']
+                    st.switch_page('pages/View_Only_User_Profile.py')
+
+                
             
                 # drop down to select item to offer
                 selected_item = st.selectbox(
