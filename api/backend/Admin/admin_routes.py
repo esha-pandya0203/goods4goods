@@ -34,9 +34,9 @@ def get_UserReports():
     return the_response
 
 # Get UserReports based on reportCode
-@admins.route('/userReports/<reportCode>', methods = ['GET'])
+@admins.route('/reportCode/<reportCode>', methods = ['GET'])
 def getReportsByCode(reportCode):
-    current_app.logger.info('GET /userReports/<reportCode> route')
+    current_app.logger.info('GET /reportCode/<reportCode> route')
     cursor = db.get_db().cursor()
     cursor.execute('SELECT report_id, report_code, description, status, reporter_id, reported_id, offer_id, reviewer_id, createdDate FROM UserReport WHERE report_code = {0}'.format(reportCode))
 
@@ -83,12 +83,12 @@ def postReport():
     cursor.execute(query)
     db.get_db().commit()
     
-    response = make_response("Product Added.")
+    response = make_response("Report Added.")
     response.status_code = 200
     return response
 
 # As a system administrator I need to be able to delete user biographies or change user biographies if they’re inappropriate in order to not allow users to have anything that violates the app’s rules in their biography.
-#- DELETE USER bio
+#- Remove USER bio - PUT Bio = NULL
 @admins.route('/UserBio/<user_id>', methods = ['PUT'])
 def deleteBio(user_id):
     current_app.logger.info('PUT /UserBio/<user_id> route')
@@ -104,24 +104,25 @@ def deleteBio(user_id):
 
 
 # Update a UserReport status - accepted/rejected?
-@admins.route('/UserReport', methods = ['PUT'])
+@admins.route('/userReport', methods = ['PUT'])
 def updateStatus():
-    current_app.logger.info('PUT /UserReport route')
+    current_app.logger.info('PUT /userReport route')
     status_info = request.json
     report_id = status_info['report_id']
     status = status_info['status']
 
+    current_app.logger.info(f'Updating report_id {report_id} to status {status}')
     query = 'UPDATE UserReport SET status = %s WHERE report_id = %s'
     data = (status,report_id)
     cursor = db.get_db().cursor()
-    r = cursor.execute(query, data)
+    cursor.execute(query, data)
     db.get_db().commit()
     return 'Status Updated!'
 
 # Delete a UserReport
-@admins.route('/UserReport/<report_id>', methods = ['DELETE'])
+@admins.route('/userReport/<report_id>', methods = ['DELETE'])
 def deleteReports(report_id):
-    current_app.logger.info('DELETE /UserReport/<report_id> route')
+    current_app.logger.info('DELETE /userReport/<report_id> route')
     cursor = db.get_db().cursor()
     cursor.execute('DELETE FROM UserReport WHERE report_id = {0}'.format(report_id))
 

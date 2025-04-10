@@ -9,6 +9,8 @@ SideBarLinks()
 
 st.write("# Accessing a REST API from Within Streamlit")
 
+
+
 """
 Simply retrieving data from a REST api running in a separate Docker Container.
 
