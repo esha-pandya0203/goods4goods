@@ -67,7 +67,7 @@ if items:
                     st.success("Item deleted. Will be removed from list on next visit to page.")
                 else:
                     st.error(f"Failed to delete: {del_resp.text}")
-                    
+
             # Show edit button
             with st.expander("✏️ Edit Item"):
                 new_name = st.text_input("Product Name", value=item["product_name"], key=f"name_{item['item_id']}")

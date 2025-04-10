@@ -16,7 +16,12 @@ def AboutPageNav():
 #### ------------------------ Examples for Role of user ------------------------
 def UserHomeNav():
     st.sidebar.page_link(
-        "pages/User_Home.py", label="User Home", icon="👤"
+        "pages/User_Home.py", label="User Home", icon="🏠"
+    )
+
+def UserProfileNav():
+    st.sidebar.page_link(
+        "pages/User_Profile.py", label="User Profile", icon="👤"
     )
 
 def UserItemsNav():
@@ -25,13 +30,8 @@ def UserItemsNav():
     )
 
 
-def UserProfileNav():
-    st.sidebar.page_link(
-        "pages/01_World_Bank_Viz.py", label="World Bank Visualization", icon="🏦"
-    )
-
 def UserOffersNav():
-    st.sidebar.page_link("pages/02_Map_Demo.py", label="Map Demonstration", icon="🗺️")
+    st.sidebar.page_link("pages/User_Offers.py", label="View Offers", icon="🔀")
 
 def UserFindItemsNav():
     st.sidebar.page_link("pages/02_Map_Demo.py", label="Map Demonstration", icon="🗺️")
@@ -107,11 +107,11 @@ def SideBarLinks(show_home=False):
             # Show User Home page link
             UserHomeNav()
 
-            # Show User Items page link
-            UserItemsNav()
-
             # Show User Profile page link
             UserProfileNav()
+
+            # Show User Items page link
+            UserItemsNav()
 
             # Show User Offers page link
             UserOffersNav()

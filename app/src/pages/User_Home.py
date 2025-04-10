@@ -18,7 +18,7 @@ st.write('### What would you like to do today?')
 if st.button('Manage Your Profile', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/01_World_Bank_Viz.py')
+  st.switch_page('pages/User_Profile.py')
 
 if st.button('Manage Your Items', 
              type='primary',
@@ -28,7 +28,7 @@ if st.button('Manage Your Items',
 if st.button('Manage Your Offers', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/01_World_Bank_Viz.py')
+  st.switch_page('pages/User_Offers.py')
 
 if st.button('Search for Items', 
              type='primary',

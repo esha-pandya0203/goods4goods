@@ -20,10 +20,15 @@ def get_user_offers(userId):
     current_app.logger.info('GET /items/<userID> route')
     cursor = db.get_db().cursor()
     cursor.execute(f''' SELECT CONCAT(u1.firstName, " ", u1.lastName) AS 'Offering Trader', 
+                        u1.user_id AS 'Offering Trader ID',
                         CONCAT(u2.firstName, " ", u2.lastName) AS 'Receiving Trader', 
+                        u2.user_id AS 'Receiving Trader ID',
                         sc.status_name AS 'Status', 
                         i1.product_name AS 'Offered Item', 
-                        i2.product_name AS 'Requested Item'
+                        i1.image_url AS 'Offered Item Image',
+                        i2.product_name AS 'Requested Item',
+                        i2.image_url AS 'Requested Item Image',
+                        o.offer_id AS 'Offer ID'
                         FROM Offer o
                             JOIN User u1 ON o.offering_user = u1.user_id
                             JOIN User u2 ON o.receiving_user = u2.user_id
@@ -62,7 +67,7 @@ def get_offer_fairness(offerID):
 # This is a POST route to make a new offer.
 @offers.route('/propose', methods=['POST'])
 def propose_offer():
-    
+
     the_data = request.json
     current_app.logger.info(the_data)
 
@@ -94,14 +99,40 @@ def propose_offer():
 # TO DO: change boolean active based on status
 @offers.route('/update-status', methods=['PUT'])
 def deactivate_item():
-    current_app.logger.info('PUT /deactivate route')
+    current_app.logger.info('PUT /update-status route')
+
     offer_info = request.json
     offer_id = offer_info['offer_id']
     status = offer_info['status']
-
-    query = 'UPDATE item SET status = %s where id = %s'
-    data = (status, offer_id)
+    item_offered_id = offer_info['offered_item']
+    item_requested_id = offer_info['requested_item']
+    
     cursor = db.get_db().cursor()
-    r = cursor.execute(query, data)
+
+    # Change active status of items based on offer status
+    if status == "Accepted" or status == "Pending":
+         cursor.execute('UPDATE Item SET active = 0 WHERE item_id = %s', (item_offered_id,))
+         db.get_db().commit()
+         cursor.execute('UPDATE Item SET active = 0 WHERE item_id = %s', (item_requested_id,))
+         db.get_db().commit()
+    elif status == "Rejected":
+        cursor.execute('UPDATE Item SET active = 1 WHERE item_id = %s', (item_offered_id,))
+        db.get_db().commit()
+        cursor.execute('UPDATE Item SET active = 1 WHERE item_id = %s', (item_requested_id,))
+        db.get_db().commit()
+
+    
+    # Get status_code_id from status name
+    cursor.execute('SELECT status_code_id FROM StatusCodes WHERE status_name = %s', (status,))
+    result = cursor.fetchone()
+
+    if not result:
+        return make_response("Invalid status", 400)
+
+    status_code_id = result['status_code_id']
+
+    # Update offer's status
+    cursor.execute('UPDATE Offer SET status = %s WHERE offer_id = %s', (status_code_id, offer_id))
     db.get_db().commit()
-    return 'offer status updated!'
+
+    return 'Offer status updated!'
