@@ -96,11 +96,18 @@ def display_offer_card(offer, user_role, allow_status_change=False, restrict_sta
 
     st.markdown(f"**Status:** {offer['Status']}")
     other_user = offer["Offering Trader"] if user_role == "received" else offer["Receiving Trader"]
+    other_user_id = offer["Offering Trader ID"] if user_role == "received" else offer["Receiving Trader ID"]
     st.markdown(f"**Other Trader:** {other_user}")
 
     # Fairness score
     fairness = get_fairness_score(offer["Offer ID"])
     st.markdown(f"**Fairness Score:** {fairness}")
+
+    if st.button("Report User", key=f"report_{offer['Offer ID']}"):
+            st.session_state['report_user_id'] = f"{other_user_id}"
+            st.session_state['report_user_name'] = f"{other_user}"
+            st.session_state['report_offer_id'] = f"{offer['Offer ID']}"
+            st.switch_page('pages/Report_User_Form.py')
 
     if allow_status_change:
         options = restrict_status_options or ["Pending", "Accepted", "Rejected"]
@@ -112,6 +119,7 @@ def display_offer_card(offer, user_role, allow_status_change=False, restrict_sta
         )
         if st.button("💾 Update Status", key=f"update_btn_{offer['Offer ID']}"):
             update_offer_status(offer["Offer ID"], new_status, offer["Offered Item ID"], offer["Requested Item ID"])
+
     st.markdown("---")
 
 # Tab 1: Received Offers 

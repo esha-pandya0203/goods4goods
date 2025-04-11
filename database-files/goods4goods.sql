@@ -112,8 +112,7 @@ CREATE TABLE `StatusCodes` (
 INSERT INTO StatusCodes (status_name) VALUES
 ('Pending'),
 ('Accepted'),
-('Rejected'),
-('In Progress');
+('Rejected');
 
 # ---------------------------------------------------------------------- #
 # Add table "Item"                                                 #
@@ -136,7 +135,12 @@ CREATE TABLE `Item` (
 INSERT INTO Item (posted_by, description, product_name, image_url, target_price) VALUES
 (1, 'Used coffee table in good condition.', 'Coffee Table', 'https://i.pinimg.com/736x/d8/c2/c9/d8c2c97d1ad844f0064afe00e3516920.jpg', 50),
 (2, 'Gently used sofa set, comfortable.', 'Sofa Set', 'https://i.pinimg.com/736x/18/08/dc/1808dcedf3ad854977805c15d45d557c.jpg', 200),
-(3, 'Vintage desk lamp, perfect for home office.', 'Desk Lamp', 'https://i.pinimg.com/736x/a1/2d/85/a12d8585003e9a171698980a0e859bb0.jpg', 30);
+(3, 'Vintage desk lamp, perfect for home office.', 'Desk Lamp', 'https://i.pinimg.com/736x/a1/2d/85/a12d8585003e9a171698980a0e859bb0.jpg', 30),
+(2, 'Modern recliner in excellent condition.', 'Recliner Chair', 'https://i.pinimg.com/474x/4b/d4/09/4bd4094db0140173aa820bcb242888d8.jpg', 180),
+(2, 'Stylish round dining table, slightly used.', 'Dining Table', 'https://i.pinimg.com/474x/0c/44/1c/0c441c0084f0fc0d2fe6cba8a53cd98c.jpg', 120),
+(2, 'Single bed frame, lightly used with storage.', 'Bed Frame', 'https://i.pinimg.com/474x/80/64/79/806479b6c6ffb97c70590758967db3c9.jpg', 75),
+(3, 'Compact microwave, works perfectly.', 'Microwave', 'https://i.pinimg.com/474x/c7/13/3d/c7133d0600780562444e21e03e8abce7.jpg', 50),
+(3, 'Full-size bookshelf, light wood finish.', 'Bookshelf', 'https://i.pinimg.com/474x/f8/77/09/f877099a1aba59b8e40755ef7efed05a.jpg', 90);;
 
 # ---------------------------------------------------------------------- #
 # Add table "Offer"                                                 #
@@ -162,23 +166,23 @@ CREATE TABLE `Offer` (
 # ---------------------------------------------------------------------- #
 
 INSERT INTO Offer (offering_user, receiving_user, status, item_offered_id, item_requested_id) VALUES
-(1, 2, 1, 1, 2),
+(1, 2, 3, 1, 2),
 (2, 3, 2, 3, 1),
-(3, 1, 3, 2, 3);
+(3, 1, 1, 2, 3);
 
 # ---------------------------------------------------------------------- #
 # Add table "Rating"                                                 #
 # ---------------------------------------------------------------------- #
 
 CREATE TABLE Rating(
-    rating_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     rating_number float,
     rated_by int NOT NULL,
     rating_for int NOT NULL,
     offer_id int NOT NULL,
     FOREIGN KEY (rated_by) REFERENCES User(user_id),
     FOREIGN KEY (rating_for) REFERENCES User(user_id),
-    FOREIGN KEY (offer_id) REFERENCES Offer(offer_id)
+    FOREIGN KEY (offer_id) REFERENCES Offer(offer_id),
+    PRIMARY KEY (rated_by, rating_for, offer_id)
 );
 
 # ---------------------------------------------------------------------- #
@@ -280,11 +284,11 @@ CREATE TABLE `UserReport` (
     `report_id` INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `report_code` INTEGER NOT NULL,
     `description` tinytext,
-    `status` INTEGER NOT NULL,
+    `status` INTEGER NOT NULL DEFAULT 1,
     `reporter_id` INTEGER NOT NULL,
     `reported_id` INTEGER NOT NULL,
     `offer_id` INTEGER NOT NULL,
-    `reviewer_id` INTEGER NOT NULL,
+    `reviewer_id` INTEGER,
     createdDate datetime DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (report_code) REFERENCES ErrorCodes (error_code_id),
     FOREIGN KEY (status) REFERENCES StatusCodes (status_code_id),
@@ -292,9 +296,9 @@ CREATE TABLE `UserReport` (
     FOREIGN KEY (reported_id) REFERENCES User (user_id),
     FOREIGN KEY (reviewer_id) REFERENCES Admin (admin_id)
 );
-INSERT INTO UserReport (report_code, description, status, reporter_id, reported_id, offer_id, reviewer_id) VALUES
-(3, 'Item condition not as described', 1, 2, 3, 1, 1),
-(1, 'User made an offensive comment', 2, 1, 2, 3, 3);
+INSERT INTO UserReport (report_code, description, reporter_id, reported_id, offer_id, reviewer_id) VALUES
+(3, 'Item condition not as described', 2, 3, 1, 1),
+(1, 'User made an offensive comment', 1, 2, 3, 3);
 
 # ---------------------------------------------------------------------- #
 # Add table "FavoriteItems"                                                 #
