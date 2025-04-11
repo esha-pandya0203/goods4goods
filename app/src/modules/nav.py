@@ -35,10 +35,12 @@ def MapDemoNav():
 def ApiTestNav():
     st.sidebar.page_link("pages/12_API_Test.py", label="Test the API", icon="🛜")
 
+def NewProductNav():
+    st.sidebar.page_link("pages/14_NewProduct.py", label="New Product", icon="💻")
 
 def PredictionNav():
     st.sidebar.page_link(
-        "pages/11_Prediction.py", label="Regression Prediction", icon="📈"
+        "pages/11_ML_Prediction.py", label="Regression Prediction", icon="📈"
     )
 
 
@@ -54,7 +56,22 @@ def AdminPageNav():
     st.sidebar.page_link(
         "pages/21_ML_Model_Mgmt.py", label="ML Model Management", icon="🏢"
     )
+    
+#### ------------------------ Role of Data Analyst ------------------------
+def DataAnalystHomeNav():
+    st.sidebar.page_link(
+        "pages/Data_Analyst_Home.py", label="Data Analyst Home", icon="💻"
+    )
 
+def DataAnalystWriteReportNav(): 
+    st.sidebar.page_link(
+        "pages/Data_Analyst_Write_Report.py", label="Write Analysis", icon="📃"
+    )
+
+def DataAnalystGetReportNav(): 
+    st.sidebar.page_link(
+        "pages/Data_Analyst_View_Reports.py", label="Get Analysis", icon="📁"
+    )
 
 # --------------------------------Links Function -----------------------------------------------
 def SideBarLinks(show_home=False):
@@ -87,11 +104,18 @@ def SideBarLinks(show_home=False):
         if st.session_state["role"] == "usaid_worker":
             PredictionNav()
             ApiTestNav()
+            NewProductNav() 
             ClassificationNav()
 
         # If the user is an administrator, give them access to the administrator pages
         if st.session_state["role"] == "administrator":
             AdminPageNav()
+        
+        if st.session_state["role"] == "data_analyst": 
+            DataAnalystHomeNav()
+            DataAnalystGetReportNav() 
+            DataAnalystWriteReportNav()
+            
 
     # Always show the About page at the bottom of the list of links
     AboutPageNav()

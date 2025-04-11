@@ -17,12 +17,17 @@ st.write('### What would you like to do today?')
 if st.button('Predict Value Based on Regression Model', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/11_Prediction.py')
+  st.switch_page('pages/11_ML_Prediction.py')
 
 if st.button('View the Simple API Demo', 
              type='primary',
              use_container_width=True):
   st.switch_page('pages/12_API_Test.py')
+
+if st.button('Add a New Product', 
+             type='primary',
+             use_container_width=True):
+  st.switch_page('pages/14_NewProduct.py')
 
 if st.button("View Classification Demo",
              type='primary',
