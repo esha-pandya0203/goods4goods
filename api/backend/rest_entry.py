@@ -5,6 +5,11 @@ from backend.customers.customer_routes import customers
 from backend.products.products_routes import products
 from backend.simple.simple_routes import simple_routes
 from backend.Admin.admin_routes import admins
+from backend.users.users_routes import users
+from backend.items.items_routes import items
+from backend.offers.offer_routes import offers
+from backend.ratings.rating_routes import ratings
+from backend.reports.report_routes import reports
 import os
 from dotenv import load_dotenv
 
@@ -46,6 +51,13 @@ def create_app():
     # blueprint for admins
     app.register_blueprint(admins,      url_prefix = '/admins')
 
+
+    app.register_blueprint(users,       url_prefix='/users')
+    app.register_blueprint(items, url_prefix='/items')
+    app.register_blueprint(offers, url_prefix='/offers')
+    app.register_blueprint(ratings, url_prefix='/ratings')
+    app.register_blueprint(reports, url_prefix='/reports')
+    
     # Don't forget to return the app object
     return app
 

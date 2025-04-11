@@ -13,6 +13,28 @@ def HomeNav():
 def AboutPageNav():
     st.sidebar.page_link("pages/30_About.py", label="About", icon="🧠")
 
+#### ------------------------ Examples for Role of user ------------------------
+def UserHomeNav():
+    st.sidebar.page_link(
+        "pages/User_Home.py", label="User Home", icon="🏠"
+    )
+
+def UserProfileNav():
+    st.sidebar.page_link(
+        "pages/User_Profile.py", label="User Profile", icon="👤"
+    )
+
+def UserItemsNav():
+    st.sidebar.page_link(
+        "pages/View_User_Items.py", label="View User Items", icon="📦"
+    )
+
+def UserOffersNav():
+    st.sidebar.page_link("pages/User_Offers.py", label="View Offers", icon="🔀")
+
+def UserFindItemsNav():
+    st.sidebar.page_link("pages/User_Find_Items.py", label="View Other Items", icon="🪞")
+
 
 # #### ------------------------ Examples for Role of pol_strat_advisor ------------------------
 # def PolStratAdvHomeNav():
@@ -40,6 +62,11 @@ def AboutPageNav():
 #     st.sidebar.page_link(
 #         "pages/11_Prediction_Page.py", label="Regression Prediction", icon="📈"
 #     )
+
+def PredictionNav():
+    st.sidebar.page_link(
+        "pages/11_ML_Prediction.py", label="Regression Prediction", icon="📈"
+    )
 
 
 # def ClassificationNav():
@@ -77,6 +104,22 @@ def SideBarLinks(show_home=False):
 
     # Show the other page navigators depending on the users' role.
     if st.session_state["authenticated"]:
+
+        if st.session_state["role"] == "user":
+            # Show User Home page link
+            UserHomeNav()
+
+            # Show User Profile page link
+            UserProfileNav()
+
+            # Show User Items page link
+            UserItemsNav()
+
+            # Show User Offers page link
+            UserOffersNav()
+
+            # Show Find Items page link
+            UserFindItemsNav()
 
         # Show World Bank Link and Map Demo Link if the user is a political strategy advisor role.
         if st.session_state["role"] == "pol_strat_advisor":
