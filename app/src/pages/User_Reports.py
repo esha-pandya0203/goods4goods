@@ -38,12 +38,6 @@ except:
 
 
 
-# Find reported user - delete bio
 
 
 
-
-# # Enter an item to delete (diff page)
-# item_id = st.text_input(label = "Enter Item ID to be Deleted: ")
-# if item_id:
-#     requests.delete('http://api:4000/admins/adminItems/<{item_id}>')
