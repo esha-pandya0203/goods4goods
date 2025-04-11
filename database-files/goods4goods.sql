@@ -1,4 +1,3 @@
-
 DROP DATABASE IF EXISTS goods4goods;
 
 CREATE DATABASE IF NOT EXISTS goods4goods;
@@ -113,8 +112,7 @@ CREATE TABLE `StatusCodes` (
 INSERT INTO StatusCodes (status_name) VALUES
 ('Pending'),
 ('Accepted'),
-('Rejected'),
-('In Progress');
+('Rejected');
 
 # ---------------------------------------------------------------------- #
 # Add table "Item"                                                 #
@@ -144,7 +142,6 @@ INSERT INTO Item (posted_by, description, product_name, image_url, target_price)
 (3, 'Compact microwave, works perfectly.', 'Microwave', 'https://i.pinimg.com/474x/c7/13/3d/c7133d0600780562444e21e03e8abce7.jpg', 50),
 (3, 'Full-size bookshelf, light wood finish.', 'Bookshelf', 'https://i.pinimg.com/474x/f8/77/09/f877099a1aba59b8e40755ef7efed05a.jpg', 90);;
 
-
 # ---------------------------------------------------------------------- #
 # Add table "Offer"                                                 #
 # ---------------------------------------------------------------------- #
@@ -160,8 +157,8 @@ CREATE TABLE `Offer` (
     FOREIGN KEY (offering_user) REFERENCES User (user_id),
     FOREIGN KEY (receiving_user) REFERENCES User (user_id),
     FOREIGN KEY (status) REFERENCES StatusCodes (status_code_id),
-    FOREIGN KEY (item_offered_id) REFERENCES Item (item_id) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (item_requested_id) REFERENCES Item (item_id) ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY (item_offered_id) REFERENCES Item (item_id) ON DELETE CASCADE,
+    FOREIGN KEY (item_requested_id) REFERENCES Item (item_id) ON DELETE CASCADE
 );
 
 # ---------------------------------------------------------------------- #
@@ -169,9 +166,9 @@ CREATE TABLE `Offer` (
 # ---------------------------------------------------------------------- #
 
 INSERT INTO Offer (offering_user, receiving_user, status, item_offered_id, item_requested_id) VALUES
-(1, 2, 1, 1, 2),
+(1, 2, 3, 1, 2),
 (2, 3, 2, 3, 1),
-(3, 1, 3, 2, 3);
+(3, 1, 1, 2, 3);
 
 # ---------------------------------------------------------------------- #
 # Add table "Rating"                                                 #
@@ -184,7 +181,7 @@ CREATE TABLE Rating(
     offer_id int NOT NULL,
     FOREIGN KEY (rated_by) REFERENCES User(user_id),
     FOREIGN KEY (rating_for) REFERENCES User(user_id),
-    FOREIGN KEY (offer_id) REFERENCES Offer(offer_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (offer_id) REFERENCES Offer(offer_id),
     PRIMARY KEY (rated_by, rating_for, offer_id)
 );
 
@@ -287,11 +284,11 @@ CREATE TABLE `UserReport` (
     `report_id` INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `report_code` INTEGER NOT NULL,
     `description` tinytext,
-    `status` INTEGER NOT NULL,
+    `status` INTEGER NOT NULL DEFAULT 1,
     `reporter_id` INTEGER NOT NULL,
     `reported_id` INTEGER NOT NULL,
     `offer_id` INTEGER NOT NULL,
-    `reviewer_id` INTEGER NOT NULL,
+    `reviewer_id` INTEGER,
     createdDate datetime DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (report_code) REFERENCES ErrorCodes (error_code_id),
     FOREIGN KEY (status) REFERENCES StatusCodes (status_code_id),
@@ -299,9 +296,9 @@ CREATE TABLE `UserReport` (
     FOREIGN KEY (reported_id) REFERENCES User (user_id),
     FOREIGN KEY (reviewer_id) REFERENCES Admin (admin_id)
 );
-INSERT INTO UserReport (report_code, description, status, reporter_id, reported_id, offer_id, reviewer_id) VALUES
-(3, 'Item condition not as described', 1, 2, 3, 1, 1),
-(1, 'User made an offensive comment', 2, 1, 2, 3, 3);
+INSERT INTO UserReport (report_code, description, reporter_id, reported_id, offer_id, reviewer_id) VALUES
+(3, 'Item condition not as described', 2, 3, 1, 1),
+(1, 'User made an offensive comment', 1, 2, 3, 3);
 
 # ---------------------------------------------------------------------- #
 # Add table "FavoriteItems"                                                 #
@@ -311,7 +308,7 @@ CREATE TABLE `FavoriteItems` (
     `item_id` INTEGER NOT NULL,
     `sme_id` INTEGER NOT NULL,
      PRIMARY KEY(item_id, sme_id),
-     FOREIGN KEY(item_id) REFERENCES Item (item_id) ON DELETE CASCADE ON UPDATE CASCADE,
+     FOREIGN KEY(item_id) REFERENCES Item (item_id) ON DELETE CASCADE,
      FOREIGN KEY(sme_id) REFERENCES SME (sme_id)
 );
 INSERT INTO FavoriteItems (item_id, sme_id) VALUES

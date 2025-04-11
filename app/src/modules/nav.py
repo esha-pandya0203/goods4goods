@@ -13,47 +13,75 @@ def HomeNav():
 def AboutPageNav():
     st.sidebar.page_link("pages/30_About.py", label="About", icon="🧠")
 
-
-#### ------------------------ Examples for Role of pol_strat_advisor ------------------------
-def PolStratAdvHomeNav():
+#### ------------------------ Examples for Role of user ------------------------
+def UserHomeNav():
     st.sidebar.page_link(
-        "pages/00_Pol_Strat_Home.py", label="Political Strategist Home", icon="👤"
+        "pages/User_Home.py", label="User Home", icon="🏠"
     )
 
-
-def WorldBankVizNav():
+def UserProfileNav():
     st.sidebar.page_link(
-        "pages/01_World_Bank_Viz.py", label="World Bank Visualization", icon="🏦"
+        "pages/User_Profile.py", label="User Profile", icon="👤"
     )
 
+def UserItemsNav():
+    st.sidebar.page_link(
+        "pages/View_User_Items.py", label="View User Items", icon="📦"
+    )
 
-def MapDemoNav():
-    st.sidebar.page_link("pages/02_Map_Demo.py", label="Map Demonstration", icon="🗺️")
+def UserOffersNav():
+    st.sidebar.page_link("pages/User_Offers.py", label="View Offers", icon="🔀")
+
+def UserFindItemsNav():
+    st.sidebar.page_link("pages/User_Find_Items.py", label="View Other Items", icon="🪞")
 
 
-## ------------------------ Examples for Role of usaid_worker ------------------------
-def ApiTestNav():
-    st.sidebar.page_link("pages/12_API_Test.py", label="Test the API", icon="🛜")
+# #### ------------------------ Examples for Role of pol_strat_advisor ------------------------
+# def PolStratAdvHomeNav():
+#     st.sidebar.page_link(
+#         "pages/00_Pol_Strat_Home.py", label="Political Strategist Home", icon="👤"
+#     )
 
+
+# def WorldBankVizNav():
+#     st.sidebar.page_link(
+#         "pages/01_World_Bank_Viz.py", label="World Bank Visualization", icon="🏦"
+#     )
+
+
+# def MapDemoNav():
+#     st.sidebar.page_link("pages/02_Map_Demo.py", label="Map Demonstration", icon="🗺️")
+
+
+# ## ------------------------ Examples for Role of usaid_worker ------------------------
+# def ApiTestNav():
+#     st.sidebar.page_link("pages/12_API_Test.py", label="Test the API", icon="🛜")
+
+
+# def PredictionNav():
+#     st.sidebar.page_link(
+#         "pages/11_Prediction_Page.py", label="Regression Prediction", icon="📈"
+#     )
 
 def PredictionNav():
     st.sidebar.page_link(
-        "pages/11_Prediction.py", label="Regression Prediction", icon="📈"
+        "pages/11_ML_Prediction.py", label="Regression Prediction", icon="📈"
     )
 
 
-def ClassificationNav():
-    st.sidebar.page_link(
-        "pages/13_Classification.py", label="Classification Demo", icon="🌺"
-    )
+# def ClassificationNav():
+#     st.sidebar.page_link(
+#         "pages/13_Classification.py", label="Classification Demo", icon="🌺"
+#     )
 
 
 #### ------------------------ System Admin Role ------------------------
 def AdminPageNav():
-    st.sidebar.page_link("pages/20_Admin_Home.py", label="System Admin", icon="🖥️")
-    st.sidebar.page_link(
-        "pages/21_ML_Model_Mgmt.py", label="ML Model Management", icon="🏢"
-    )
+    st.sidebar.page_link("pages/System_Admin_Home.py", label="System Admin", icon="🖥️")
+    st.sidebar.page_link("pages/User_Reports.py", label="User Reports Data", icon="📈")
+    st.sidebar.page_link("pages/Update_User_Reports.py", label="Update User Reports", icon="👤")
+    st.sidebar.page_link("pages/Admin_Report.py", label = "Admin Reports", icon = "🏦")
+    st.sidebar.page_link("pages/Item_Delete.py", label = "Delete Items", icon = "❌")
 
 #### ------------------------ System Admin Role ------------------------
 def SocialMediaEmployeePageNav():
@@ -82,6 +110,22 @@ def SideBarLinks(show_home=False):
 
     # Show the other page navigators depending on the users' role.
     if st.session_state["authenticated"]:
+
+        if st.session_state["role"] == "user":
+            # Show User Home page link
+            UserHomeNav()
+
+            # Show User Profile page link
+            UserProfileNav()
+
+            # Show User Items page link
+            UserItemsNav()
+
+            # Show User Offers page link
+            UserOffersNav()
+
+            # Show Find Items page link
+            UserFindItemsNav()
 
         # Show World Bank Link and Map Demo Link if the user is a political strategy advisor role.
         if st.session_state["role"] == "pol_strat_advisor":
