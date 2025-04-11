@@ -11,7 +11,7 @@ SideBarLinks()
 
 # function fetch user data
 def get_user_data(user_id):
-    response = requests.get(f"http://api-test:4000/users/{user_id}")
+    response = requests.get(f"http://api:4000/users/{user_id}")
     if response.status_code == 200:
         return response.json()[0]
     else:
@@ -23,7 +23,7 @@ def edit_user_bio(new_bio):
     payload = {
         "user_bio": new_bio
     }
-    response = requests.put(f"http://api-test:4000/users/{st.session_state['user_id']}", json=payload)
+    response = requests.put(f"http://api:4000/users/{st.session_state['user_id']}", json=payload)
     if response.status_code == 200:
         st.success("Bio updated successfully! Changes will be reflected on the next visit to the page.")
     else:

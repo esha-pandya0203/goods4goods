@@ -11,7 +11,7 @@ SideBarLinks()
 
 # function fetch user data
 def get_user_data(user_id):
-    response = requests.get(f"http://api-test:4000/users/{user_id}")
+    response = requests.get(f"http://api:4000/users/{user_id}")
     if response.status_code == 200:
         return response.json()[0]
     else:
@@ -20,7 +20,7 @@ def get_user_data(user_id):
     
 # function to fetch user items
 def get_user_items(user_id):
-    response = requests.get(f"http://api-test:4000/items/{user_id}")
+    response = requests.get(f"http://api:4000/items/{user_id}")
     if response.status_code == 200:
         return response.json()
     else:

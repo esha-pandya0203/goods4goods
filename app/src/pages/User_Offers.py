@@ -9,7 +9,7 @@ st.set_page_config(layout = 'wide')
 SideBarLinks()
 
 def get_user_offers(user_id):
-    response = requests.get(f"http://api-test:4000/offers/{user_id}")
+    response = requests.get(f"http://api:4000/offers/{user_id}")
     if response.status_code == 200:
         return response.json()
     else:
@@ -23,14 +23,14 @@ def update_offer_status(offer_id, status, item_offered_id, item_requested_id):
         "offered_item": item_offered_id,
         "requested_item": item_requested_id
     }
-    response = requests.put("http://api-test:4000/offers/status", json=payload)
+    response = requests.put("http://api:4000/offers/status", json=payload)
     if response.status_code == 200:
         st.success("Status updated successfully!")
     else:
         st.error("Failed to update status.")
 
 def get_fairness_score(offer_id):
-    response = requests.get(f"http://api-test:4000/offers/fairness/{offer_id}")
+    response = requests.get(f"http://api:4000/offers/fairness/{offer_id}")
     if response.status_code == 200:
         return response.json()[0]["Fairness Score"]
     else:
@@ -38,7 +38,7 @@ def get_fairness_score(offer_id):
         return None
     
 def get_user_rating_for_transaction(user_id, offer_id):
-    response = requests.get(f"http://api-test:4000/ratings/{offer_id}/{user_id}")
+    response = requests.get(f"http://api:4000/ratings/{offer_id}/{user_id}")
     if response.status_code == 200:
         return response.json()
     else:
@@ -52,7 +52,7 @@ def rate_transaction(user_id, offer_id, rating, other_user_id):
         "rating_number": rating,
         "offer_id": offer_id
     }
-    response = requests.post("http://api-test:4000/ratings", json=payload)
+    response = requests.post("http://api:4000/ratings", json=payload)
     if response.status_code == 200:
         st.success("Rating submitted successfully!")
     else:

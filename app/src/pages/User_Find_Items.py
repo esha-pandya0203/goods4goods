@@ -15,7 +15,7 @@ current_user_id = st.session_state["user_id"]
 
 # get listings for the user to browse
 def get_listings(user_id):
-    response = requests.get(f"http://api-test:4000/items/listings/{user_id}")
+    response = requests.get(f"http://api:4000/items/listings/{user_id}")
     if response.status_code == 200:
         return response.json()
     else:
@@ -24,7 +24,7 @@ def get_listings(user_id):
     
 # function to fetch user items
 def get_user_items(user_id):
-    response = requests.get(f"http://api-test:4000/items/{user_id}")
+    response = requests.get(f"http://api:4000/items/{user_id}")
     if response.status_code == 200:
         return response.json()
     else:
@@ -40,7 +40,7 @@ def propose_trade(offering_user, receiving_user, item_offered_id, item_requested
     "item_requested_id": item_requested_id
     }
 
-    response = requests.post("http://api-test:4000/offers", json=payload)
+    response = requests.post("http://api:4000/offers", json=payload)
     if response.status_code == 200:
         st.success("Trade proposed successfully!")
     else:
