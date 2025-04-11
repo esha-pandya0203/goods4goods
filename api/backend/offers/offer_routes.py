@@ -87,8 +87,8 @@ def propose_offer():
                             item_requested_id)
         VALUES (%s, %s, 1, %s, %s) '''
     
-    cursor.execute('UPDATE Item SET active = 0 WHERE item_id = %s', (item_offered_id,))
-    cursor.execute('UPDATE Item SET active = 0 WHERE item_id = %s', (item_requested_id,))
+    #cursor.execute('UPDATE Item SET active = 0 WHERE item_id = %s', (item_offered_id,))
+    #cursor.execute('UPDATE Item SET active = 0 WHERE item_id = %s', (item_requested_id,))
     
     cursor.execute(query, (offering_user, receiving_user, item_offered_id, item_requested_id))
     db.get_db().commit()
@@ -113,10 +113,10 @@ def deactivate_item():
     cursor = db.get_db().cursor()
 
     # Change active status of items based on offer status
-    if status == "Accepted" or status == "Pending":
+    if status == "Accepted":
          cursor.execute('UPDATE Item SET active = 0 WHERE item_id = %s', (item_offered_id,))
          cursor.execute('UPDATE Item SET active = 0 WHERE item_id = %s', (item_requested_id,))
-    elif status == "Rejected":
+    elif status == "Rejected" or status == "Pending":
         cursor.execute('UPDATE Item SET active = 1 WHERE item_id = %s', (item_offered_id,))
         cursor.execute('UPDATE Item SET active = 1 WHERE item_id = %s', (item_requested_id,))
     

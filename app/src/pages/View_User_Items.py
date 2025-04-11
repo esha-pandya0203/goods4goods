@@ -29,7 +29,8 @@ def add_new_item(posted_by, description, product_name, image_url, target_price):
         
     response = requests.post(f"http://api:4000/items", json=payload)
     if response.status_code == 200:
-        st.success("Item added!")
+        #st.success("Item added!")
+        st.rerun()
     else:
         st.error(f"Failed to add item: {response.text}")  
 
@@ -37,7 +38,8 @@ def add_new_item(posted_by, description, product_name, image_url, target_price):
 def delete_item(item_id):
     response = requests.delete(f"http://api:4000/items/{item_id}")
     if response.status_code == 200:
-        st.success("Item deleted!Will be removed from list on next visit to page.")
+        #st.success("Item deleted! Will be removed from list on next visit to page.")
+        st.rerun()
     else:
         st.error(f"Failed to delete item: {response.text}")  
 
@@ -51,7 +53,8 @@ def edit_item(new_name, new_desc, new_price, new_img, item_id):
     }
     response = requests.put(f"http://api:4000/items/{item_id}", json=payload)
     if response.status_code == 200:
-        st.success("Item updated! Changes will be reflected on next visit to page.")
+        #st.success("Item updated! Changes will be reflected on next visit to page.")
+        st.rerun()
     else:
         st.error(f"Failed to update item: {response.text}")
 

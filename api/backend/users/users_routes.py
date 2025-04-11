@@ -33,7 +33,7 @@ def get_user_profile_info(userId):
         FROM 
             User u
         LEFT JOIN 
-            Offer o ON u.user_id = o.offering_user AND o.status = 2 
+            Offer o ON ((u.user_id = o.offering_user OR u.user_id = o.receiving_user) AND o.status = 2)
         LEFT JOIN 
             AdminReport ar ON u.user_id = ar.reported_id
         LEFT JOIN 

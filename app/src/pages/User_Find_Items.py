@@ -43,6 +43,7 @@ def propose_trade(offering_user, receiving_user, item_offered_id, item_requested
     response = requests.post("http://api:4000/offers", json=payload)
     if response.status_code == 200:
         st.success("Trade proposed successfully!")
+        #st.rerun()
     else:
         st.error("Failed to propose trade.")
 

@@ -25,7 +25,8 @@ def update_offer_status(offer_id, status, item_offered_id, item_requested_id):
     }
     response = requests.put("http://api:4000/offers/status", json=payload)
     if response.status_code == 200:
-        st.success("Status updated successfully!")
+        #st.success("Status updated successfully!")
+        st.rerun()
     else:
         st.error("Failed to update status.")
 
@@ -54,7 +55,8 @@ def rate_transaction(user_id, offer_id, rating, other_user_id):
     }
     response = requests.post("http://api:4000/ratings", json=payload)
     if response.status_code == 200:
-        st.success("Rating submitted successfully!")
+        #st.success("Rating submitted successfully!")
+        st.rerun()
     else:
         st.error("Failed to submit rating.")
 

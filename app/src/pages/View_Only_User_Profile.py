@@ -27,12 +27,31 @@ def get_user_items(user_id):
         st.error("Failed to fetch user items.")
         return []
 
+# function to propose a trade 
+def propose_trade(offering_user, receiving_user, item_offered_id, item_requested_id):
+    payload = {
+    "offering_user": offering_user,
+    "receiving_user": receiving_user,
+    "item_offered_id": item_offered_id,
+    "item_requested_id": item_requested_id
+    }
+
+    response = requests.post("http://api:4000/offers", json=payload)
+    if response.status_code == 200:
+        st.success("Trade proposed successfully!")
+        #st.rerun()
+    else:
+        st.error("Failed to propose trade.")
+
 # function to format the date
 def format_date(date_str):
     return datetime.strptime(date_str, "%a, %d %b %Y %H:%M:%S GMT").strftime("%B %d, %Y")
 
 
 user_data = get_user_data(st.session_state['view_user_id'])
+
+current_user_id = st.session_state["user_id"]
+current_user_items = get_user_items(current_user_id)
 
 if st.button("Go Back"):
     st.switch_page('pages/User_Find_Items.py')
@@ -71,6 +90,23 @@ if items:
             st.subheader(item["product_name"])
             st.markdown(f"**Description:** {item['description']}")
             st.markdown(f"**Target Price:** ${item['target_price']}")
+
+            # drop down to select item to offer
+            selected_item = st.selectbox(
+                "Select one of your items to offer:",
+                current_user_items,
+                format_func=lambda x: x["product_name"] +", Target Price: "+ str(x['target_price']),
+                key=f"dropdown_{item['item_id']}"
+            )
+
+            # button to propose trade
+            if st.button("Propose Trade", key=f"trade_{item['item_id']}"):
+                propose_trade(
+                    offering_user=current_user_id,
+                    receiving_user=item["posted_by"],
+                    item_offered_id=selected_item["item_id"],
+                    item_requested_id=item["item_id"]
+                )
 
 else:
     st.warning("No items to display.")
