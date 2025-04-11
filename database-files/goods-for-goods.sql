@@ -153,8 +153,8 @@ CREATE TABLE `Offer` (
     FOREIGN KEY (offering_user) REFERENCES User (user_id),
     FOREIGN KEY (receiving_user) REFERENCES User (user_id),
     FOREIGN KEY (status) REFERENCES StatusCodes (status_code_id),
-    FOREIGN KEY (item_offered_id) REFERENCES Item (item_id),
-    FOREIGN KEY (item_requested_id) REFERENCES Item (item_id)
+    FOREIGN KEY (item_offered_id) REFERENCES Item (item_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (item_requested_id) REFERENCES Item (item_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 # ---------------------------------------------------------------------- #
@@ -178,7 +178,7 @@ CREATE TABLE Rating(
     offer_id int NOT NULL,
     FOREIGN KEY (rated_by) REFERENCES User(user_id),
     FOREIGN KEY (rating_for) REFERENCES User(user_id),
-    FOREIGN KEY (offer_id) REFERENCES Offer(offer_id)
+    FOREIGN KEY (offer_id) REFERENCES Offer(offer_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 # ---------------------------------------------------------------------- #
@@ -304,7 +304,7 @@ CREATE TABLE `FavoriteItems` (
     `item_id` INTEGER NOT NULL,
     `sme_id` INTEGER NOT NULL,
      PRIMARY KEY(item_id, sme_id),
-     FOREIGN KEY(item_id) REFERENCES Item (item_id),
+     FOREIGN KEY(item_id) REFERENCES Item (item_id) ON DELETE CASCADE ON UPDATE CASCADE,
      FOREIGN KEY(sme_id) REFERENCES SME (sme_id)
 );
 INSERT INTO FavoriteItems (item_id, sme_id) VALUES

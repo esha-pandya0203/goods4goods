@@ -54,7 +54,7 @@ def AdminPageNav():
     st.sidebar.page_link("pages/User_Reports.py", label="User Reports Data", icon="📈")
     st.sidebar.page_link("pages/Update_User_Reports.py", label="Update User Reports", icon="👤")
     st.sidebar.page_link("pages/Admin_Report.py", label = "Admin Reports", icon = "🏦")
-    # st.sidebar.page_link("pages/Item_Delete.py", label = "Delete Items", icon = "❌")
+    st.sidebar.page_link("pages/Item_Delete.py", label = "Delete Items", icon = "❌")
 
 
 # --------------------------------Links Function -----------------------------------------------

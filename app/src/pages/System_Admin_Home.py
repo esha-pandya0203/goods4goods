@@ -30,10 +30,10 @@ if st.button('Create Admin Report',
   st.switch_page('pages/Admin_Report.py')
 
   
-# if st.button('Delete Item', 
-#              type='primary',
-#              use_container_width=True):
-#   st.switch_page('pages/Item_Delete.py')
+if st.button('Delete Item', 
+             type='primary',
+             use_container_width=True):
+  st.switch_page('pages/Item_Delete.py')
 
 # if st.button('Delete User Bio', 
 #              type='primary',
