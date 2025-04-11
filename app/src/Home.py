@@ -59,5 +59,16 @@ if st.button('Act as Chloe Smith, System Administrator',
             use_container_width=True):
     st.session_state['authenticated'] = True
     st.session_state['role'] = 'administrator'
+    st.session_state['first_name'] = 'SysAdmin'
+    st.switch_page('pages/20_Admin_Home.py')
+
+if st.button('Act as Daniel Kimmel, a Social Media Employee', 
+            type = 'primary', 
+            use_container_width=True):
+    st.session_state['authenticated'] = True
+    st.session_state['role'] = 'sme'
+    st.session_state['first_name'] = 'FName'
+    st.switch_page('pages/SME_Home.py')
+
     st.session_state['first_name'] = 'Chloe'
     st.switch_page('pages/System_Admin_Home.py')
