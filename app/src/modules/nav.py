@@ -36,27 +36,32 @@ def UserFindItemsNav():
     st.sidebar.page_link("pages/User_Find_Items.py", label="View Other Items", icon="🪞")
 
 
-#### ------------------------ Examples for Role of pol_strat_advisor ------------------------
-def PolStratAdvHomeNav():
-    st.sidebar.page_link(
-        "pages/00_Pol_Strat_Home.py", label="Political Strategist Home", icon="👤"
-    )
+# #### ------------------------ Examples for Role of pol_strat_advisor ------------------------
+# def PolStratAdvHomeNav():
+#     st.sidebar.page_link(
+#         "pages/00_Pol_Strat_Home.py", label="Political Strategist Home", icon="👤"
+#     )
 
 
-def WorldBankVizNav():
-    st.sidebar.page_link(
-        "pages/01_World_Bank_Viz.py", label="World Bank Visualization", icon="🏦"
-    )
+# def WorldBankVizNav():
+#     st.sidebar.page_link(
+#         "pages/01_World_Bank_Viz.py", label="World Bank Visualization", icon="🏦"
+#     )
 
 
-def MapDemoNav():
-    st.sidebar.page_link("pages/02_Map_Demo.py", label="Map Demonstration", icon="🗺️")
+# def MapDemoNav():
+#     st.sidebar.page_link("pages/02_Map_Demo.py", label="Map Demonstration", icon="🗺️")
 
 
-## ------------------------ Examples for Role of usaid_worker ------------------------
-def ApiTestNav():
-    st.sidebar.page_link("pages/12_API_Test.py", label="Test the API", icon="🛜")
+# ## ------------------------ Examples for Role of usaid_worker ------------------------
+# def ApiTestNav():
+#     st.sidebar.page_link("pages/12_API_Test.py", label="Test the API", icon="🛜")
 
+
+# def PredictionNav():
+#     st.sidebar.page_link(
+#         "pages/11_Prediction_Page.py", label="Regression Prediction", icon="📈"
+#     )
 
 def PredictionNav():
     st.sidebar.page_link(
@@ -64,18 +69,19 @@ def PredictionNav():
     )
 
 
-def ClassificationNav():
-    st.sidebar.page_link(
-        "pages/13_Classification.py", label="Classification Demo", icon="🌺"
-    )
+# def ClassificationNav():
+#     st.sidebar.page_link(
+#         "pages/13_Classification.py", label="Classification Demo", icon="🌺"
+#     )
 
 
 #### ------------------------ System Admin Role ------------------------
 def AdminPageNav():
-    st.sidebar.page_link("pages/20_Admin_Home.py", label="System Admin", icon="🖥️")
-    st.sidebar.page_link(
-        "pages/21_ML_Model_Mgmt.py", label="ML Model Management", icon="🏢"
-    )
+    st.sidebar.page_link("pages/System_Admin_Home.py", label="System Admin", icon="🖥️")
+    st.sidebar.page_link("pages/User_Reports.py", label="User Reports Data", icon="📈")
+    st.sidebar.page_link("pages/Update_User_Reports.py", label="Update User Reports", icon="👤")
+    st.sidebar.page_link("pages/Admin_Report.py", label = "Admin Reports", icon = "🏦")
+    st.sidebar.page_link("pages/Item_Delete.py", label = "Delete Items", icon = "❌")
 
 
 # --------------------------------Links Function -----------------------------------------------
