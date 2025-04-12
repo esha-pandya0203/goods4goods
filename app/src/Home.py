@@ -36,9 +36,7 @@ SideBarLinks(show_home=True)
 logger.info("Loading the Home page of the app")
 st.title('Goods4Goods')
 st.write('\n\n')
-st.write('### HI! As which user would you like to log in?')
-
-
+st.write('### HI! Which user would you like to log in as?')
 
 if st.button("Act as Emma Johnson, a user of Goods4Goods", 
             type = 'primary', 
@@ -50,25 +48,18 @@ if st.button("Act as Emma Johnson, a user of Goods4Goods",
     logger.info("Logging in as Emma Johnson User Persona")
     st.switch_page('pages/User_Home.py')
 
-
-
-
-
-if st.button('Act as Chloe Smith, System Administrator', 
+if st.button('Act as Chloe Smith, a System Administrator', 
             type = 'primary', 
             use_container_width=True):
     st.session_state['authenticated'] = True
     st.session_state['role'] = 'administrator'
-    st.session_state['first_name'] = 'SysAdmin'
-    st.switch_page('pages/20_Admin_Home.py')
+    st.session_state['first_name'] = 'Chloe'
+    st.switch_page('pages/System_Admin_Home.py')
 
 if st.button('Act as Daniel Kimmel, a Social Media Employee', 
             type = 'primary', 
             use_container_width=True):
     st.session_state['authenticated'] = True
     st.session_state['role'] = 'sme'
-    st.session_state['first_name'] = 'FName'
+    st.session_state['first_name'] = 'Daniel'
     st.switch_page('pages/SME_Home.py')
-
-    st.session_state['first_name'] = 'Chloe'
-    st.switch_page('pages/System_Admin_Home.py')
