@@ -10,11 +10,14 @@ from backend.db_connection import db
 # routes.
 posts = Blueprint('posts', __name__)
 
-# Get all of the posts made so far
+# Get all of the posts made so far sorted by latest created date first
 @posts.route('/', methods=['GET'])
 def get_posts():
-    query = '''SELECT post_id, post_title, description, 
-                `show`, posted_by, createdDate FROM Posts;
+    query = '''SELECT p.post_id AS 'post_id', p.post_title AS 'post_title', p.description AS 'description', 
+                p.`show` AS 'show', CONCAT(s.firstName, " ", s.lastName) AS 'createdBy', p.createdDate AS 'createdDate' 
+                FROM Posts p
+                    JOIN SME s ON s.sme_id = p.posted_by
+                ORDER BY createdDate DESC;
     '''
 
     # get a cursor object from the database
@@ -36,6 +39,20 @@ def get_posts():
     # send the response back to the client
     return response
 
+# @posts.route('/<post_id>', methods=['GET'])
+# def get_post(postID):
+#     query = f'''SELECT post_id, post_title, description, 
+#                 `show`, posted_by, createdDate 
+#                 FROM Posts
+#                 WHERE post_id = {postID};
+#     '''
+#     cursor = db.get_db().cursor()
+#     cursor.execute(query)
+#     theData = cursor.fetchall()
+
+#     response = make_response(jsonify(theData))
+#     response.status_code = 200
+#     return response
 
 @posts.route('/', methods=['POST'])
 def add_new_post():
@@ -61,7 +78,23 @@ def add_new_post():
     cursor.execute(query)
     db.get_db().commit()
     
-    response = make_response("Successfully added product")
+    response = make_response("Successfully added post")
+    response.status_code = 200
+    return response
+
+#------------------------------------------------------------
+# Show/hide post with particular postID
+@posts.route('/<postID>', methods=['PUT'])
+def update_post_visibility(postID):
+    the_data = request.json
+
+    new_visibility = the_data['new_visibility']
+    query = f'UPDATE Posts SET `show` = {new_visibility} WHERE post_id = {postID}'
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
+
+    response = make_response("Successfully updated post visibility")
     response.status_code = 200
     return response
 
