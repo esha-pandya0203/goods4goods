@@ -62,4 +62,5 @@ if st.button('Act as Daniel Kimmel, a Social Media Employee',
     st.session_state['authenticated'] = True
     st.session_state['role'] = 'sme'
     st.session_state['first_name'] = 'Daniel'
+    st.session_state['sme_id'] = 1
     st.switch_page('pages/SME_Home.py')

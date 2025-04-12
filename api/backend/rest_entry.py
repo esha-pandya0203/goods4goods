@@ -11,6 +11,7 @@ from backend.items.items_routes import items
 from backend.offers.offer_routes import offers
 from backend.ratings.rating_routes import ratings
 from backend.reports.report_routes import reports
+from backend.sme.sme_routes import sme
 import os
 from dotenv import load_dotenv
 
@@ -49,7 +50,9 @@ def create_app():
     app.register_blueprint(simple_routes)
     app.register_blueprint(customers,   url_prefix='/c')
     app.register_blueprint(products,    url_prefix='/p')
-    app.register_blueprint(posts,       url_prefix='/z')
+    # Blueprint for SMEs
+    app.register_blueprint(posts,       url_prefix='/posts')
+    app.register_blueprint(sme,       url_prefix='/sme')
     # blueprint for admins
     app.register_blueprint(admins,      url_prefix = '/admins')
 

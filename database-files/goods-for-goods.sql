@@ -229,6 +229,7 @@ CREATE TABLE Posts(
     post_id int NOT NULL PRIMARY KEY AUTO_INCREMENT PRIMARY KEY,
     post_title varchar(75) NOT NULL,
     description tinytext,
+    -- content varchar(65535),
     `show` bool,
     posted_by int NOT NULL,
     createdDate datetime DEFAULT CURRENT_TIMESTAMP,

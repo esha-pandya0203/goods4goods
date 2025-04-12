@@ -11,7 +11,7 @@ from backend.db_connection import db
 posts = Blueprint('posts', __name__)
 
 # Get all of the posts made so far
-@posts.route('/posts', methods=['GET'])
+@posts.route('/', methods=['GET'])
 def get_posts():
     query = '''SELECT post_id, post_title, description, 
                 `show`, posted_by, createdDate FROM Posts;
@@ -37,7 +37,7 @@ def get_posts():
     return response
 
 
-@posts.route('/posts', methods=['POST'])
+@posts.route('/', methods=['POST'])
 def add_new_post():
     # In a POST request, there is a 
     # collecting data from the request object 
@@ -62,5 +62,20 @@ def add_new_post():
     db.get_db().commit()
     
     response = make_response("Successfully added product")
+    response.status_code = 200
+    return response
+
+#------------------------------------------------------------
+# Delete post with particular postID
+@posts.route('/<postID>', methods=['DELETE'])
+def delete_post(postID):
+    current_app.logger.info('DELETE /posts route')
+    query = f'DELETE FROM Posts WHERE post_id = {postID};'
+
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
+
+    response = make_response("Successfully deleted post")
     response.status_code = 200
     return response
