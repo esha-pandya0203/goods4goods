@@ -13,7 +13,7 @@ SideBarLinks()
 st.header('User Reports')
 
 ####
-filter_dropdown = st.selectbox(label="Filter Reports", options=['All','Code 1 - User Bio', 'Code 2 - Item Error','Code 3 - Technical Error'])
+filter_dropdown = st.selectbox(label="Filter Reports", options=['All User Reports','All Admin Reports','Code 1 - User Bio', 'Code 2 - Item Error','Code 3 - Technical Error'])
 # Filter Report Types - by report code
 if filter_dropdown == 'Code 1 - User Bio':
     url = 'http://api:4000/admins/reportCode/1'
@@ -21,6 +21,8 @@ elif filter_dropdown == 'Code 2 - Item Error':
     url = 'http://api:4000/admins/reportCode/2'
 elif filter_dropdown == 'Code 3 - Technical Error':
     url = 'http://api:4000/admins/reportCode/3'
+elif filter_dropdown == 'All Admin Reports':
+    url = 'http://api:4000/admins/adminReport'
 else:
 # Show all current reports
     url = 'http://api:4000/admins/userReport'

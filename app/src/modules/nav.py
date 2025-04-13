@@ -77,8 +77,8 @@ def PredictionNav():
 
 #### ------------------------ System Admin Role ------------------------
 def AdminPageNav():
-    st.sidebar.page_link("pages/System_Admin_Home.py", label="System Admin", icon="🖥️")
-    st.sidebar.page_link("pages/User_Reports.py", label="User Reports Data", icon="📈")
+    st.sidebar.page_link("pages/System_Admin_Home.py", label="System Admin Home", icon="🖥️")
+    st.sidebar.page_link("pages/User_Reports.py", label="View Reports Data", icon="📈")
     st.sidebar.page_link("pages/Update_User_Reports.py", label="Update User Reports", icon="👤")
     st.sidebar.page_link("pages/Admin_Report.py", label = "Admin Reports", icon = "🏦")
     st.sidebar.page_link("pages/Item_Delete.py", label = "Delete Items", icon = "❌")
