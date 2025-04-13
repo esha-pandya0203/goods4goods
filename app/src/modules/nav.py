@@ -85,9 +85,10 @@ def AdminPageNav():
 
 #### ------------------------ Social Media Employee Role ------------------------
 def SocialMediaEmployeePageNav():
-    st.sidebar.page_link("pages/SME_Home.py", label="SME Homepage", icon="🖥️")
+    st.sidebar.page_link("pages/SME_Home.py", label="SME Homepage", icon="🏠")
     st.sidebar.page_link("pages/SME_Profile.py", label="Employee Profile", icon="👤")
-    st.sidebar.page_link("pages/SME_New_Post.py", label="Create New Post", icon="🖥️")
+    st.sidebar.page_link("pages/SME_All_Posts.py", label="Social Media Posts", icon="📌")
+    st.sidebar.page_link("pages/SME_New_Post.py", label="Create New Post", icon="✍️")
 
 # --------------------------------Links Function -----------------------------------------------
 def SideBarLinks(show_home=False):

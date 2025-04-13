@@ -5,55 +5,27 @@ import requests
 from streamlit_extras.app_logo import add_logo
 from modules.nav import SideBarLinks
 
+st.set_page_config(layout = 'wide')
 # Show appropriate sidebar links for the role of the currently logged in user
 SideBarLinks()
-
-def get_posts():
-    response = requests.get(f"http://api:4000/posts")
-    if response.status_code == 200:
-        return response.json()
-    else:
-        st.error(f"Failed to get posts: {response.text}")
-        return {}
-
-def delete_post(post_id):
-    response = requests.delete(f"http://api:4000/posts/{post_id}")
-    if response.status_code == 200:
-        st.rerun()
-    else:
-        st.error(f"Failed to delete post: {response.text}")
-
-def update_post_visibility(post_id, curr_visibility):
-    response = requests.put(f"http://api:4000/posts/{post_id}", json={"new_visibility": not curr_visibility})
-    if response.status_code == 200:
-        st.rerun()
-    else:
-        st.error(f"Failed to update post: {response.text}")
 
 st.title(f"Welcome Social Media Employee, {st.session_state['first_name']}.")
 st.write('')
 st.write('')
-st.write('Social Media Posts')
-posts = get_posts()
+st.write('### What would you like to do today?')
 
-if posts:
-    for post in posts:
-        with st.container(border=True):
-            
-            left, right = st.columns([4,1])
+if st.button('Manage Social Media Posts',
+            type='primary',
+            use_container_width=True):
+    st.switch_page('pages/SME_All_Posts.py')
 
-            with left:
-                st.subheader(post['post_title'], False)
-                st.markdown(f"**{post['description']}**")
-                st.markdown(f"Post visibility: {post['show']}")
-                st.markdown(f"Author: {post['createdBy']}")
-                st.markdown(f"Created on {post['createdDate']}")
-            with right:
-                # Delete button
-                if st.button("❌ Delete", key=f"button_delete_{post['post_id']}"):
-                    delete_post(post['post_id'])
-                # Hide/show button
-                if st.button("Hide/Show", key=f"button_hide_{post['post_id']}"):
-                    update_post_visibility(post['post_id'], post['show'])
-else:
-    st.write("No social media posts yet! Ready to write some?")
+if st.button('Create a New Post',
+            type='primary',
+            use_container_width=True):
+    st.switch_page('pages/SME_New_Post.py')
+
+if st.button('View Your Profile',
+            type='primary',
+            use_container_width=True):
+    st.switch_page('pages/SME_Profile.py')
+

@@ -9,7 +9,7 @@ sme = Blueprint('sme', __name__)
 
 # Get all personal information of given smeID
 @sme.route('/<smeID>', methods=['GET'])
-def get_sme(smeID):
+def get_sme_personal_info(smeID):
     query = f'''
         SELECT s.firstName AS first_name,
         s.lastName AS last_name,
@@ -32,3 +32,15 @@ def get_sme(smeID):
     response.status_code = 200
 
     return response
+
+# @sme.routes('/<smeID>/favItems', methods=['GET'])
+# def get_sme_fav_items(smeID):
+#     query = f'''
+#         SELECT i.item_id, i.posted_by, 
+#         FROM SME s
+#             JOIN FavoriteItems fi ON s.sme_id = fi.sme_id
+#             JOIN Item i ON i.item_id = fi.item_id
+#         WHERE s.sme_id = '{smeID}'
+#         GROUP BY 
+#             s.sme_id;
+#     '''

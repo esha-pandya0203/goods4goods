@@ -10,6 +10,7 @@ from backend.db_connection import db
 # routes.
 posts = Blueprint('posts', __name__)
 
+#------------------------------------------------------------
 # Get all of the posts made so far sorted by latest created date first
 @posts.route('/', methods=['GET'])
 def get_posts():
@@ -39,21 +40,8 @@ def get_posts():
     # send the response back to the client
     return response
 
-# @posts.route('/<post_id>', methods=['GET'])
-# def get_post(postID):
-#     query = f'''SELECT post_id, post_title, description, 
-#                 `show`, posted_by, createdDate 
-#                 FROM Posts
-#                 WHERE post_id = {postID};
-#     '''
-#     cursor = db.get_db().cursor()
-#     cursor.execute(query)
-#     theData = cursor.fetchall()
-
-#     response = make_response(jsonify(theData))
-#     response.status_code = 200
-#     return response
-
+#------------------------------------------------------------
+# Create a new post
 @posts.route('/', methods=['POST'])
 def add_new_post():
     # In a POST request, there is a 
@@ -82,9 +70,32 @@ def add_new_post():
     response.status_code = 200
     return response
 
+@posts.route('/<post_id>', methods=['GET'])
+def get_post(postID):
+    query = f'''SELECT post_id, post_title, description, 
+                `show`, posted_by, createdDate 
+                FROM Posts
+                WHERE post_id = {postID};
+    '''
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    theData = cursor.fetchall()
+
+    response = make_response(jsonify(theData))
+    response.status_code = 200
+    return response
+
+#------------------------------------------------------------
+# # Edit all content of a post with particular postID
+# @posts.route('/<postID>', methods=['PUT'])
+# def update_post(postID):
+#     the_data = request.json
+
+
+
 #------------------------------------------------------------
 # Show/hide post with particular postID
-@posts.route('/<postID>', methods=['PUT'])
+@posts.route('/show/<postID>', methods=['PUT'])
 def update_post_visibility(postID):
     the_data = request.json
 
