@@ -32,6 +32,22 @@ def get_UserReports():
 
     return the_response
 
+@admins.route('/adminReport', methods = ['GET'])
+def get_AdminReports():
+    cursor = db.get_db().cursor()
+    the_query = '''
+    SELECT * 
+    FROM `AdminReport`
+    '''
+
+    cursor.execute(the_query)
+    theData = cursor.fetchall()
+    the_response = make_response(jsonify(theData))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+
+    return the_response
+
 # Get UserReports based on reportCode
 @admins.route('/reportCode/<reportCode>', methods = ['GET'])
 def getReportsByCode(reportCode):
