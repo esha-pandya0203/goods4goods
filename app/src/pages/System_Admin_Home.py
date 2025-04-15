@@ -12,7 +12,7 @@ SideBarLinks()
 st.title(f"Welcome System Admin, {st.session_state['first_name']}.")
 
 
-if st.button('See User Reports', 
+if st.button('View Reports Data', 
              type='primary',
              use_container_width=True):
   st.switch_page('pages/User_Reports.py')
