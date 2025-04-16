@@ -92,6 +92,16 @@ def DataAnalystGetReportNav():
         "pages/Data_Analyst_View_Reports.py", label="Get Analysis", icon="📁"
     )
 
+def DataAnalystUserMetrics():
+    st.sidebar.page_link(
+        "pages/Data_Analyst_User_Metrics.py", label="See User Metrics", icon="📊"
+    )
+
+def DataAnalystProductMetrics():
+    st.sidebar.page_link(
+        "pages/Data_Analyst_Item_Metrics.py", label="See Product Metrics", icon="📈"
+    )
+
 #### ------------------------ System Admin Role ------------------------
 def AdminPageNav():
     st.sidebar.page_link("pages/System_Admin_Home.py", label="System Admin Home", icon="🖥️")
@@ -150,6 +160,8 @@ def SideBarLinks(show_home=False):
         
         if st.session_state["role"] == "data_analyst": 
             DataAnalystHomeNav()
+            DataAnalystUserMetrics() 
+            DataAnalystProductMetrics()
             DataAnalystGetReportNav() 
             DataAnalystWriteReportNav()
             

@@ -17,12 +17,12 @@ st.write('### What would you like to do today?')
 if st.button('See User Engagement Metrics', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/12_API_Test.py')
+  st.switch_page('pages/Data_Analyst_User_Metrics.py')
 
 if st.button('See Product Popularity Metrics', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/14_NewProduct.py')
+  st.switch_page('pages/Data_Analyst_Item_Metrics.py')
 
 if st.button("Generate a Report",
              type='primary',
@@ -33,8 +33,3 @@ if st.button("View Previous Reports",
              type='primary',
              use_container_width=True):
   st.switch_page('pages/Data_Analyst_View_Reports.py')
-
-if st.button('Predict Value Based on Regression Model', 
-             type='primary',
-             use_container_width=True):
-  st.switch_page('pages/11_ML_Prediction.py')
