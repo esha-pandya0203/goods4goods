@@ -10,6 +10,7 @@ from backend.items.items_routes import items
 from backend.offers.offer_routes import offers
 from backend.ratings.rating_routes import ratings
 from backend.reports.report_routes import reports
+from backend.sme.sme_routes import sme
 import os
 from dotenv import load_dotenv
 
@@ -44,11 +45,11 @@ def create_app():
 
     # Register the routes from each Blueprint with the app object
     # and give a url prefix to each
-    app.logger.info('current_app(): registering blueprints with Flask app object.')   
+    app.logger.info('current_app(): registering blueprints with Flask app object.')
+    app.register_blueprint(posts,       url_prefix='/posts')
+    app.register_blueprint(sme,       url_prefix='/sme')
     app.register_blueprint(employees,   url_prefix='/e') 
     app.register_blueprint(analysis, url_prefix='/a')
-    app.register_blueprint(posts,       url_prefix='/z')
-    # blueprint for admins
     app.register_blueprint(admins,      url_prefix = '/admins')
     app.register_blueprint(users,       url_prefix='/users')
     app.register_blueprint(items, url_prefix='/items')
