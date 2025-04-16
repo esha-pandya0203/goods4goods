@@ -42,6 +42,8 @@ def UserFindItemsNav():
 #         "pages/00_Pol_Strat_Home.py", label="Political Strategist Home", icon="👤"
 #     )
 
+# def NewProductNav():
+#     st.sidebar.page_link("pages/14_NewProduct.py", label="New Product", icon="💻")
 
 # def WorldBankVizNav():
 #     st.sidebar.page_link(
@@ -74,11 +76,36 @@ def PredictionNav():
 #         "pages/13_Classification.py", label="Classification Demo", icon="🌺"
 #     )
 
+#### ------------------------ Role of Data Analyst ------------------------
+def DataAnalystHomeNav():
+    st.sidebar.page_link(
+        "pages/Data_Analyst_Home.py", label="Data Analyst Home", icon="💻"
+    )
+
+def DataAnalystWriteReportNav(): 
+    st.sidebar.page_link(
+        "pages/Data_Analyst_Write_Report.py", label="Write Analysis", icon="📃"
+    )
+
+def DataAnalystGetReportNav(): 
+    st.sidebar.page_link(
+        "pages/Data_Analyst_View_Reports.py", label="Get Analysis", icon="📁"
+    )
+
+def DataAnalystUserMetrics():
+    st.sidebar.page_link(
+        "pages/Data_Analyst_User_Metrics.py", label="See User Metrics", icon="📊"
+    )
+
+def DataAnalystProductMetrics():
+    st.sidebar.page_link(
+        "pages/Data_Analyst_Item_Metrics.py", label="See Product Metrics", icon="📈"
+    )
 
 #### ------------------------ System Admin Role ------------------------
 def AdminPageNav():
-    st.sidebar.page_link("pages/System_Admin_Home.py", label="System Admin", icon="🖥️")
-    st.sidebar.page_link("pages/User_Reports.py", label="User Reports Data", icon="📈")
+    st.sidebar.page_link("pages/System_Admin_Home.py", label="System Admin Home", icon="🖥️")
+    st.sidebar.page_link("pages/User_Reports.py", label="View Reports Data", icon="📈")
     st.sidebar.page_link("pages/Update_User_Reports.py", label="Update User Reports", icon="👤")
     st.sidebar.page_link("pages/Admin_Report.py", label = "Admin Reports", icon = "🏦")
     st.sidebar.page_link("pages/Item_Delete.py", label = "Delete Items", icon = "❌")
@@ -127,21 +154,17 @@ def SideBarLinks(show_home=False):
             # Show Find Items page link
             UserFindItemsNav()
 
-        # Show World Bank Link and Map Demo Link if the user is a political strategy advisor role.
-        if st.session_state["role"] == "pol_strat_advisor":
-            PolStratAdvHomeNav()
-            WorldBankVizNav()
-            MapDemoNav()
-
-        # If the user role is usaid worker, show the Api Testing page
-        if st.session_state["role"] == "usaid_worker":
-            PredictionNav()
-            ApiTestNav()
-            ClassificationNav()
-
         # If the user is an administrator, give them access to the administrator pages
         if st.session_state["role"] == "administrator":
             AdminPageNav()
+        
+        if st.session_state["role"] == "data_analyst": 
+            DataAnalystHomeNav()
+            DataAnalystUserMetrics() 
+            DataAnalystProductMetrics()
+            DataAnalystGetReportNav() 
+            DataAnalystWriteReportNav()
+            
 
         if st.session_state["role"] == "sme":
             SocialMediaEmployeePageNav()
@@ -156,3 +179,4 @@ def SideBarLinks(show_home=False):
             del st.session_state["role"]
             del st.session_state["authenticated"]
             st.switch_page("Home.py")
+

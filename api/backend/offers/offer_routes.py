@@ -131,3 +131,23 @@ def deactivate_item():
     response = make_response("Successfully updated offer status")
     response.status_code = 200
     return response
+
+@offers.route('/metrics/status', methods=['GET']) 
+def get_trade_status_metrics():
+    query = '''
+    SELECT sc.status_name, COUNT(*) AS trade_count
+    FROM Offer AS o
+    JOIN StatusCodes AS sc ON o.status = sc.status_code_id
+    GROUP BY sc.status_name
+    ORDER BY trade_count DESC;
+    '''
+    
+    cursor = db.get_db().cursor() 
+    cursor.execute(query) 
+    data = cursor.fetchall() 
+    
+    response = make_response(jsonify(data))
+    response.status_code = 200
+
+    return response
+
