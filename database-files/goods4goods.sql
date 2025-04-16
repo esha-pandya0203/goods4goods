@@ -107,6 +107,51 @@ INSERT INTO Analyst (firstName, lastName, reports_to) VALUES
 ('Kaitlin', 'Moore', 1),
 ('Greg', 'Erikson', 3);
 
+insert into Analyst (firstName, lastName, reports_to) values ('Rhiamon', 'Worling', 1);
+insert into Analyst (firstName, lastName, reports_to) values ('Prudi', 'Hassan', 45);
+insert into Analyst (firstName, lastName, reports_to) values ('Archambault', 'Cherryman', 30);
+insert into Analyst (firstName, lastName, reports_to) values ('Lee', 'Woloschinski', 49);
+insert into Analyst (firstName, lastName, reports_to) values ('Mikaela', 'Gavaran', 40);
+insert into Analyst (firstName, lastName, reports_to) values ('Basilius', 'Edworthye', 2);
+insert into Analyst (firstName, lastName, reports_to) values ('Dacy', 'Dack', 9);
+insert into Analyst (firstName, lastName, reports_to) values ('Alister', 'Berre', 8);
+insert into Analyst (firstName, lastName, reports_to) values ('Miller', 'Josefsson', 42);
+insert into Analyst (firstName, lastName, reports_to) values ('Tim', 'Aleksandrev', 36);
+insert into Analyst (firstName, lastName, reports_to) values ('Nessi', 'Wiggington', 47);
+insert into Analyst (firstName, lastName, reports_to) values ('Teodora', 'Bruster', 47);
+insert into Analyst (firstName, lastName, reports_to) values ('Yevette', 'Dunkley', 46);
+insert into Analyst (firstName, lastName, reports_to) values ('Charmain', 'Fenne', 47);
+insert into Analyst (firstName, lastName, reports_to) values ('Lionello', 'Heeron', 25);
+insert into Analyst (firstName, lastName, reports_to) values ('Richmound', 'Stannett', 4);
+insert into Analyst (firstName, lastName, reports_to) values ('Addy', 'Sorbie', 50);
+insert into Analyst (firstName, lastName, reports_to) values ('Diego', 'Bigland', 49);
+insert into Analyst (firstName, lastName, reports_to) values ('Blinny', 'Racine', 11);
+insert into Analyst (firstName, lastName, reports_to) values ('Mariska', 'Pockey', 31);
+insert into Analyst (firstName, lastName, reports_to) values ('Cammi', 'Geddis', 8);
+insert into Analyst (firstName, lastName, reports_to) values ('Gigi', 'Bacop', 44);
+insert into Analyst (firstName, lastName, reports_to) values ('Alric', 'Frohock', 31);
+insert into Analyst (firstName, lastName, reports_to) values ('Tabitha', 'Macer', 47);
+insert into Analyst (firstName, lastName, reports_to) values ('Hinda', 'Bownas', 40);
+insert into Analyst (firstName, lastName, reports_to) values ('Vidovic', 'Alcido', 20);
+insert into Analyst (firstName, lastName, reports_to) values ('Jordain', 'Daughtry', 31);
+insert into Analyst (firstName, lastName, reports_to) values ('Benetta', 'Messier', 7);
+insert into Analyst (firstName, lastName, reports_to) values ('Madelaine', 'Souster', 31);
+insert into Analyst (firstName, lastName, reports_to) values ('Martie', 'Aindrais', 47);
+insert into Analyst (firstName, lastName, reports_to) values ('Suzanne', 'Zoane', 44);
+insert into Analyst (firstName, lastName, reports_to) values ('Noelle', 'Cornilleau', 43);
+insert into Analyst (firstName, lastName, reports_to) values ('Emmie', 'Addy', 43);
+insert into Analyst (firstName, lastName, reports_to) values ('Jemima', 'Restieaux', 32);
+insert into Analyst (firstName, lastName, reports_to) values ('Clark', 'Guiso', 43);
+insert into Analyst (firstName, lastName, reports_to) values ('Bidget', 'Kubas', 25);
+insert into Analyst (firstName, lastName, reports_to) values ('Anne-marie', 'Harkes', 26);
+insert into Analyst (firstName, lastName, reports_to) values ('Davina', 'Mathen', 49);
+insert into Analyst (firstName, lastName, reports_to) values ('Lilian', 'Dohrmann', 2);
+insert into Analyst (firstName, lastName, reports_to) values ('Felicity', 'Dolphin', 26);
+insert into Analyst (firstName, lastName, reports_to) values ('Henrieta', 'Lowery', 9);
+insert into Analyst (firstName, lastName, reports_to) values ('Constantine', 'Ennor', 46);
+insert into Analyst (firstName, lastName, reports_to) values ('Edgar', 'Andren', 50);
+insert into Analyst (firstName, lastName, reports_to) values ('Eugenie', 'Gives', 4);
+insert into Analyst (firstName, lastName, reports_to) values ('Clarance', 'Quinnelly', 1);
 
 # ---------------------------------------------------------------------- #
 # Add table "Analysis"                                                 #
@@ -129,6 +174,52 @@ INSERT INTO Analysis (start_date,end_date,written_analysis,analyst_id) VALUES
 ( '2024-03-05 10:00:00', '2024-03-06 15:30:00', 'Total Items Traded in the month of February 2025: 72', 2),
 ('2024-03-10 09:45:00', '2024-03-12 12:00:00', 'Most trusted users (best ratings): Emma, Erika, Esha', 1);
 
+
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-10-15 15:14:36', '2025-02-13 14:20:34', 9, 'Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-01-21 16:14:17', '2024-06-18 00:45:48', 34, 'Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-04-15 05:44:27', '2024-07-11 11:38:37', 24, 'Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2025-01-26 06:04:27', '2025-03-27 10:49:49', 34, 'Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-05-07 18:37:43', '2024-10-26 14:53:00', 25, 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2025-03-01 16:05:26', '2024-08-12 00:57:53', 8, 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-05-08 20:04:23', '2024-03-01 11:48:14', 29, 'Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-11-25 18:14:33', '2024-06-12 00:57:32', 37, 'Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-06-06 17:13:42', '2024-03-16 22:20:52', 18, 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-04-22 19:01:40', '2024-10-06 17:58:57', 36, 'Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-12-25 01:50:08', '2024-07-28 14:27:40', 20, 'Aliquam erat volutpat. In congue.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-12-09 04:59:54', '2024-03-14 02:55:33', 32, 'Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-06-20 13:56:17', '2024-10-25 17:03:07', 6, 'Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-01-07 18:59:07', '2024-07-28 02:30:27', 30, 'Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-05-10 05:33:21', '2024-07-31 12:35:43', 44, 'Nullam varius.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-03-26 03:30:56', '2024-12-26 07:10:40', 2, 'Aenean auctor gravida sem.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-03-26 01:22:16', '2024-11-07 23:50:09', 15, 'Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-10-18 06:23:49', '2024-07-12 09:18:13', 37, 'Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-07-21 05:58:58', '2024-04-11 00:22:38', 30, 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-08-14 23:07:58', '2025-04-03 02:03:53', 19, 'Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-04-09 14:49:44', '2024-09-26 12:07:29', 29, 'Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-06-30 07:51:37', '2025-02-25 11:14:56', 13, 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-12-20 22:03:47', '2024-03-21 23:52:28', 3, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2025-04-03 19:11:12', '2024-02-21 16:04:42', 9, 'Vestibulum ac est lacinia nisi venenatis tristique.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-02-22 11:38:21', '2024-10-10 03:13:48', 16, 'Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-01-15 21:46:55', '2024-02-17 07:54:40', 11, 'Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-06-28 16:57:32', '2024-12-12 11:21:55', 37, 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-03-07 17:05:52', '2024-11-27 13:07:22', 47, 'Proin eu mi. Nulla ac enim.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-03-10 05:34:07', '2024-04-19 23:51:55', 23, 'Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-03-24 13:59:48', '2024-02-26 20:05:03', 46, 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-06-20 08:03:47', '2024-08-02 15:11:22', 25, 'Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-10-02 13:29:37', '2024-08-14 02:38:05', 21, 'Quisque id justo sit amet sapien dignissim vestibulum.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-07-29 00:09:22', '2025-03-10 12:45:11', 1, 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2025-01-29 21:04:55', '2025-01-01 06:44:12', 39, 'Nulla nisl.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-04-08 09:09:42', '2025-01-17 08:21:16', 38, 'Etiam justo.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-05-02 08:22:37', '2024-10-24 02:08:22', 44, 'Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2025-04-03 14:11:30', '2024-03-12 18:04:01', 15, 'In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-09-03 17:07:28', '2024-04-02 10:21:21', 34, 'Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-02-14 07:43:08', '2024-04-21 08:47:51', 30, 'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-08-05 13:54:39', '2025-02-26 03:03:30', 25, 'Maecenas pulvinar lobortis est.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2025-03-14 19:40:49', '2024-04-06 15:07:50', 40, 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2025-03-27 01:24:38', '2024-02-17 06:16:53', 7, 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-03-03 17:43:56', '2024-04-19 06:17:53', 32, 'Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-03-18 07:16:49', '2024-08-06 01:08:31', 6, 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.');
+insert into Analysis (start_date, end_date, analysis_id, written_analysis) values ('2024-10-06 02:43:39', '2024-05-07 10:49:03', 25, 'Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat.');
 
 # ---------------------------------------------------------------------- #
 # Add table "User"                                                 #
