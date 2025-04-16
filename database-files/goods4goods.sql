@@ -295,7 +295,7 @@ INSERT INTO StatusCodes (status_name) VALUES
 ('Pending'),
 ('Accepted'),
 ('Rejected'),
-('In Progress');
+('In-Progress');
 
 
 
@@ -323,9 +323,71 @@ INSERT INTO Item (posted_by, description, product_name, image_url, target_price)
 (3, 'Vintage desk lamp, perfect for home office.', 'Desk Lamp', 'https://i.pinimg.com/736x/a1/2d/85/a12d8585003e9a171698980a0e859bb0.jpg', 30),
 (2, 'Modern recliner in excellent condition.', 'Recliner Chair', 'https://i.pinimg.com/474x/4b/d4/09/4bd4094db0140173aa820bcb242888d8.jpg', 180),
 (2, 'Stylish round dining table, slightly used.', 'Dining Table', 'https://i.pinimg.com/474x/0c/44/1c/0c441c0084f0fc0d2fe6cba8a53cd98c.jpg', 120),
-(2, 'Single bed frame, lightly used with storage.', 'Bed Frame', 'https://i.pinimg.com/474x/80/64/79/806479b6c6ffb97c70590758967db3c9.jpg', 75),
+(29, 'Single bed frame, lightly used with storage.', 'Bed Frame', 'https://i.pinimg.com/474x/80/64/79/806479b6c6ffb97c70590758967db3c9.jpg', 75),
+
 (3, 'Compact microwave, works perfectly.', 'Microwave', 'https://i.pinimg.com/474x/c7/13/3d/c7133d0600780562444e21e03e8abce7.jpg', 50),
-(3, 'Full-size bookshelf, light wood finish.', 'Bookshelf', 'https://i.pinimg.com/474x/f8/77/09/f877099a1aba59b8e40755ef7efed05a.jpg', 90);;
+(3, 'Full-size bookshelf, light wood finish.', 'Bookshelf', 'https://i.pinimg.com/474x/f8/77/09/f877099a1aba59b8e40755ef7efed05a.jpg', 90),
+(1, 'Ceramic vase with floral design.', 'Ceramic Vase', 'https://i.pinimg.com/474x/ff/dd/41/ffdd411ef13cb54eacc9ea04127efca1.jpg', 25),
+(4, 'Men’s leather jacket, barely worn.', 'Leather Jacket', 'https://i.pinimg.com/474x/81/73/aa/8173aa98571a13e146605d0ee9d76837.jpg', 100),
+(5, 'Set of 4 wooden dining chairs.', 'Dining Chairs', 'https://i.pinimg.com/474x/47/ac/e3/47ace362a3a9faade39e6ec1f5bbb710.jpg', 80),
+(6, 'Wall-mounted coat rack with hooks.', 'Coat Rack', 'https://i.pinimg.com/474x/1e/b1/79/1eb1792d3419cf4f5627d1a5e3935603.jpg', 20),
+
+(4, 'Bluetooth speaker, great sound.', 'Bluetooth Speaker', 'https://i.pinimg.com/474x/80/f2/47/80f2470843b704b3f6b886903a192217.jpg', 35),
+(3, 'Cute succulent in ceramic pot.', 'Succulent Plant', 'https://i.pinimg.com/474x/fa/c1/69/fac1691eed8a8d84cb7be26ec3799bcd.jpg', 10),
+(5, 'Throw blanket, cozy and soft.', 'Throw Blanket', 'https://i.pinimg.com/474x/30/09/c1/3009c136c0d93cf9102e27d25585b6bf.jpg', 15),
+(1, 'Winter boots, waterproof, size 8.', 'Winter Boots', 'https://i.pinimg.com/474x/77/b9/d0/77b9d0417145c7309d6445646c201566.jpg', 40),
+(2, 'Framed poster of vintage NYC map.', 'NYC Map Poster', 'https://i.pinimg.com/474x/85/04/81/8504816f28997ce19e812aef951a2e97.jpg', 18),
+(3, 'Mini fridge in working condition.', 'Mini Fridge', 'https://i.pinimg.com/474x/e1/a1/97/e1a1971ea39dc84202607e5c8afaff0b.jpg', 95),
+
+(6, 'Standing mirror, full length.', 'Standing Mirror', 'https://i.pinimg.com/474x/21/2a/19/212a191fdcecc79faa38ad501386dabc.jpg', 60),
+(1, 'Vintage suitcase, leather straps.', 'Vintage Suitcase', 'https://i.pinimg.com/474x/8f/95/ae/8f95ae8c9d5aeb45407bc3f1fd870427.jpg', 50),
+(2, 'Pet carrier backpack.', 'Pet Backpack', 'https://i.pinimg.com/474x/01/f8/1d/01f81db19e5803cac8830ffb43290847.jpg', 30),
+(5, 'Gaming chair with adjustable height.', 'Gaming Chair', 'https://i.pinimg.com/474x/60/91/a7/6091a7cfdcd850c872f570a1375a52aa.jpg', 120),
+(1, 'Women’s trench coat, size M.', 'Trench Coat', 'https://i.pinimg.com/474x/e2/ca/19/e2ca19d5ee51d36b06ba1dd6b6c4d9ab.jpg', 55),
+(3, 'Pair of roller skates, size 9.', 'Roller Skates', 'https://i.pinimg.com/474x/7c/62/19/7c6219eda696f6222dccc86fff0bfa34.jpg', 45),
+
+(2, 'Laptop stand with adjustable angle.', 'Laptop Stand', 'https://i.pinimg.com/474x/16/2b/d1/162bd1de06ecc3ffa7d45b13f50b4c81.jpg', 20),
+(6, 'Rustic wall clock, working.', 'Wall Clock', 'https://i.pinimg.com/474x/5c/fe/2d/5cfe2d8560ffe4f0a8b1e15164c734b5.jpg', 30),
+(4, 'Hand-knitted scarf, warm and stylish.', 'Knitted Scarf', 'https://i.pinimg.com/474x/e5/32/35/e5323509225912ab879bffd8357172f6.jpg', 12),
+(3, 'Set of ceramic bowls, 5 pcs.', 'Ceramic Bowls', 'https://i.pinimg.com/474x/ff/1c/b3/ff1cb3423943357e035d8f7e865e9cff.jpg', 25),
+(5, 'Wooden jewelry box with mirror.', 'Jewelry Box', 'https://i.pinimg.com/474x/80/48/4b/80484ba76819b787cd4d9574eee42774.jpg', 20),
+(1, 'Easel for painting or display.', 'Artist Easel', 'https://i.pinimg.com/736x/09/5f/c7/095fc72e8a86ea430376b62c8957b428.jpg', 35),
+
+(4, 'Essential oil diffuser.', 'Oil Diffuser', 'https://i.pinimg.com/474x/e4/ad/a8/e4ada897c1ae38561f1a33ad75068b2c.jpg', 22),
+(2, 'Board game: Settlers of Catan.', 'Board Game', 'https://i.pinimg.com/474x/fc/71/e7/fc71e7eae1d3bc6e62cfc47b5db2b173.jpg', 28),
+(5, 'String lights, 20 feet, warm white.', 'String Lights', 'https://i.pinimg.com/474x/4f/9b/d1/4f9bd1a2b07ee692003c04eabfe237ad.jpg', 15),
+(6, 'Mountain bike helmet, adult size.', 'Bike Helmet', 'https://i.pinimg.com/474x/8a/6b/8b/8a6b8b2fe24f655f3bf603caf70fc10c.jpg', 40),
+(3, 'Acoustic guitar, lightly used.', 'Acoustic Guitar', 'https://i.pinimg.com/474x/f6/a6/be/f6a6bef36698cc60933f3a827a1fce4c.jpg', 95),
+(1, 'Foldable laundry hamper.', 'Laundry Hamper', 'https://i.pinimg.com/474x/84/66/84/846684c270ef79862f9fb38336af3945.jpg', 18),
+
+(4, 'Wool rug, 5x7 ft.', 'Wool Rug', 'https://i.pinimg.com/474x/5b/ec/0f/5bec0fc5f70c4cc4573de45360778613.jpg', 80),
+(16, 'Digital alarm clock with USB port.', 'Alarm Clock', 'https://i.pinimg.com/474x/54/4c/8b/544c8bea1771be260eec2717bfb6470e.jpg', 25),
+(2, 'Lava lamp, blue/purple swirl.', 'Lava Lamp', 'https://i.pinimg.com/474x/d1/3c/fb/d13cfb8696caae616433f656b49ad873.jpg', 20),
+(14, 'Handcrafted wooden tray, versatile for serving or decoration.', 'Wooden Tray', 'https://i.pinimg.com/474x/fd/9c/95/fd9c9515a370e861bac30199fd63bb2e.jpg', 30),
+(2, 'Electric kettle with temperature control.', 'Electric Kettle', 'https://i.pinimg.com/474x/fc/76/2f/fc762ff084d36449c56a3f20437ee63b.jpg', 55),
+(3, 'Leather backpack, spacious and durable.', 'Leather Backpack', 'https://i.pinimg.com/474x/1b/dc/bf/1bdcbf8aae7ea454f5b4b73155fdd60d.jpg', 90),
+
+(1, 'Wooden bookshelf, sturdy, with adjustable shelves.', 'Bookshelf', 'https://i.pinimg.com/474x/56/30/11/5630111539528d66e2cd41f3bcc03e38.jpg', 75),
+(2, 'Vintage armchair, comfortable and in great shape.', 'Armchair', 'https://i.pinimg.com/474x/24/b0/23/24b023245387f73548a89455bbfab702.jpg', 150),
+(3, 'Set of glass wine glasses, 6 pcs.', 'Wine Glasses', 'https://i.pinimg.com/474x/b2/c7/66/b2c7665b99257d3c0905ed89e9ec08be.jpg', 25),
+(4, 'Lightweight travel suitcase, expandable.', 'Travel Suitcase', 'https://i.pinimg.com/474x/c5/6f/47/c56f47858be74002b676286b216b5fea.jpg', 80),
+(15, 'Bluetooth headphones, noise-canceling.', 'Bluetooth Headphones', 'https://i.pinimg.com/474x/c5/2e/c0/c52ec0b68162fec8a596922e72966b91.jpg', 100),
+(6, 'Wooden coffee table with sleek design.', 'Coffee Table', 'https://i.pinimg.com/474x/da/1a/11/da1a11a40191478ff1767fb728dd8296.jpg', 95),
+
+(12, 'Classic rocking chair, perfect for a cozy corner.', 'Rocking Chair', 'https://i.pinimg.com/474x/d7/2d/02/d72d02ac3787547ed6ea3af9c02d1115.jpg', 60),
+(32, 'Compact desk organizer, multi-functional.', 'Desk Organizer', 'https://i.pinimg.com/474x/a2/8b/e4/a28be4b5ed7ba7f63b5929ab022af9f2.jpg', 18),
+(3, 'Handmade wool scarf, soft and warm.', 'Wool Scarf', 'https://i.pinimg.com/474x/8c/41/ac/8c41acb3cfdfe0ee24d1b9a655d55b31.jpg', 22),
+(4, 'Outdoor patio chair, weather-resistant.', 'Patio Chair', 'https://i.pinimg.com/474x/49/11/57/491157e68aa602b20412da5d3a6891fc.jpg', 120),
+(5, 'Modern area rug, 6x9 ft.', 'Area Rug', 'https://i.pinimg.com/474x/fa/ad/07/faad07dffd9e3b42cdfa30daccd4c975.jpg', 150),
+(6, 'Desk lamp with adjustable brightness.', 'Desk Lamp', 'https://i.pinimg.com/474x/62/12/d5/6212d5b44a66f644f728ca7461f76173.jpg', 40),
+
+(1, 'Set of 4 ceramic mugs, dishwasher safe.', 'Ceramic Mugs', 'https://i.pinimg.com/474x/14/dc/b7/14dcb7bf0c69302b63a5e2b370517015.jpg', 20),
+(2, 'King-size mattress, lightly used, in great condition.', 'Mattress', 'https://i.pinimg.com/474x/e7/27/d7/e727d727636f67ef86b4d2e6f56f6986.jpg', 250),
+(23, 'Portable speaker, waterproof and durable.', 'Portable Speaker', 'https://i.pinimg.com/474x/0f/b9/17/0fb917780808597c25597f7d688d6f3c.jpg', 65),
+(4, 'Full-length mirror, sleek design.', 'Full-Length Mirror', 'https://i.pinimg.com/474x/22/ac/43/22ac43fc966ec5817f1c67a686bd20e2.jpg', 55),
+(53, 'Comfortable memory foam pillow, queen size.', 'Memory Foam Pillow', 'https://i.pinimg.com/474x/14/56/5a/14565a124b530a153242b08c9f395d9c.jpg', 40),
+(60, 'Ceramic plant pot with drainage hole.', 'Plant Pot', 'https://i.pinimg.com/474x/a3/3c/d7/a33cd7c1a92d3190abc7dde28e33bbb5.jpg', 12);
+
 
 # ---------------------------------------------------------------------- #
 # Add table "Offer"                                                 #
@@ -354,7 +416,6 @@ INSERT INTO Offer (offering_user, receiving_user, status, item_offered_id, item_
 (1, 2, 1, 1, 2),
 (2, 3, 2, 3, 1),
 (3, 1, 3, 2, 3);
-
 
 insert into Offer (offering_user, receiving_user, status, item_offered_id, item_requested_id) values (38, 11, 2, 2, 7);
 insert into Offer (offering_user, receiving_user, status, item_offered_id, item_requested_id) values (34, 7, 2, 4, 5);
@@ -406,6 +467,7 @@ insert into Offer (offering_user, receiving_user, status, item_offered_id, item_
 insert into Offer (offering_user, receiving_user, status, item_offered_id, item_requested_id) values (27, 26, 3, 6, 5);
 insert into Offer (offering_user, receiving_user, status, item_offered_id, item_requested_id) values (2, 38, 4, 8, 4);
 insert into Offer (offering_user, receiving_user, status, item_offered_id, item_requested_id) values (2, 29, 2, 6, 7);
+insert into Offer (offering_user, receiving_user, status, item_offered_id, item_requested_id) values (29, 1, 1, 6, 9);
 
 # ---------------------------------------------------------------------- #
 # Add table "Rating"                                                 #
