@@ -56,6 +56,17 @@ if st.button('Act as Chloe Smith, a System Administrator',
     st.session_state['first_name'] = 'Chloe'
     st.switch_page('pages/System_Admin_Home.py')
 
+if st.button('Act as Barney Johnson, a data analyst of Goods4Goods', 
+             type='primary', 
+             use_container_width=True):
+    st.session_state['authenticated'] = True 
+    st.session_state['role'] = 'data_analyst' 
+    st.session_state['first_name'] = 'Barney' 
+    st.session_state['analyst_id'] = 1 
+    logger.info('Logging in as Barney Johnson Data Analyst Persona') 
+    st.switch_page('pages/Data_Analyst_Home.py') 
+
+
 if st.button('Act as Daniel Kimmel, a Social Media Employee', 
             type = 'primary', 
             use_container_width=True):
