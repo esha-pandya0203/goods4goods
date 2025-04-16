@@ -16,9 +16,7 @@ st.write("# Item Metrics")
 try:
     st.subheader("📊 Trade Summary")
     summary_stats = requests.get('http://api:4000/items/metrics/completed-trades').json() 
-    col1, col2 = st.columns(2) 
-    col1.metric('Total Listed Items', summary_stats['total_listed_items'])
-    col2.metric('Completed Trades', summary_stats['completed_trades'])
+    st.dataframe(summary_stats)
 except: 
     st.write("Could not connect to database to load trade summary statistics")
 

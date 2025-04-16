@@ -8,8 +8,7 @@ from flask import jsonify
 from flask import make_response
 from flask import current_app
 from backend.db_connection import db
-from datetime import datetime 
-from dateutil.relativedelta import relativedelta 
+from datetime import datetime, timedelta
 
 #------------------------------------------------------------
 # Create a new Blueprint object, which is a collection of 
@@ -50,7 +49,7 @@ def add_new_product():
     analyst_id = the_data['analyst_id']
     
     end_date = datetime.strptime(end_date_str, "%Y-%m-%d %H:%M:%S")
-    start_date = end_date - relativedelta(months=1) 
+    start_date = end_date - timedelta(days=30)
     
     start_date_str = start_date.strftime("%Y-%m-%d %H:%M:%S")
     end_date_str = end_date.strftime("%Y-%m-%d %H:%M:%S")
