@@ -47,7 +47,6 @@ def create_app():
     app.logger.info('current_app(): registering blueprints with Flask app object.')   
     app.register_blueprint(employees,   url_prefix='/e') 
     app.register_blueprint(analysis, url_prefix='/a')
-    app.logger.info('current_app(): registering blueprints with Flask app object.')
     app.register_blueprint(posts,       url_prefix='/z')
     # blueprint for admins
     app.register_blueprint(admins,      url_prefix = '/admins')

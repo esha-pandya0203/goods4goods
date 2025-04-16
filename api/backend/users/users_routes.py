@@ -62,3 +62,40 @@ def update_customer(userId):
     r = cursor.execute(query, data)
     db.get_db().commit()
     return 'User bio updated!'
+
+@users.route('/metrics/signups', methods=['GET'])
+def get_user_signups():
+    query = '''
+    SELECT DATE(u.createdDate) AS sign_up_date, COUNT(u.user_id) AS new_users
+    FROM User AS u
+    GROUP BY sign_up_date
+    ORDER BY sign_up_date DESC;
+    '''
+    
+    cursor = db.get_db().cursor() 
+    cursor.execute(query) 
+    data = cursor.fetchall() 
+    
+    response = make_response(jsonify(data))
+    response.status_code = 200
+
+    return response
+
+@users.route('/metrics/reports', methods=['GET'])
+def get_user_reports():
+    query = '''
+    SELECT error_name, COUNT(*) AS report_count
+    FROM ErrorCodes AS ec
+    JOIN UserReport AS ur ON ec.error_code_id = ur.report_code
+    GROUP BY error_name
+    ORDER BY report_count DESC;
+    '''
+    
+    cursor = db.get_db().cursor() 
+    cursor.execute(query) 
+    data = cursor.fetchall() 
+    
+    response = make_response(jsonify(data))
+    response.status_code = 200
+
+    return response

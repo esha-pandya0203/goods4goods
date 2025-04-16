@@ -123,3 +123,40 @@ def update_customer(itemId):
     r = cursor.execute(query, data)
     db.get_db().commit()
     return 'item updated!'
+
+@items.route('/metrics/top-items', methods=['GET']) 
+def get_top_items():
+    query = '''
+    SELECT i.product_name, COUNT(*) AS trade_count
+    FROM Item AS i
+    JOIN Offer AS o ON i.item_id = o.item_offered_id
+    GROUP BY product_name
+    ORDER BY trade_count DESC;
+    '''
+    
+    cursor = db.get_db().cursor() 
+    cursor.execute(query) 
+    data = cursor.fetchall() 
+    
+    response = make_response(jsonify(data))
+    response.status_code = 200
+
+    return response
+
+@items.route('/metrics/completed-trades', methods=['GET'])
+def get_completed_trades():
+    query = '''
+    SELECT (SELECT COUNT(*)
+    FROM Item AS i
+    JOIN Offer AS o ON i.item_id = o.item_offered_id) AS total_listed_items,
+       (SELECT COUNT(*) FROM Offer WHERE status = 2) AS completed_trades;
+    '''
+    
+    cursor = db.get_db().cursor() 
+    cursor.execute(query) 
+    data = cursor.fetchall() 
+    
+    response = make_response(jsonify(data))
+    response.status_code = 200
+
+    return response
