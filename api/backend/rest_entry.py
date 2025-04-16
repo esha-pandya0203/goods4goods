@@ -1,11 +1,15 @@
 from flask import Flask
 
 from backend.db_connection import db
-from backend.customers.customer_routes import customers
-from backend.products.products_routes import products
 from backend.employees.employees_routes import employees 
-from backend.simple.simple_routes import simple_routes
 from backend.analysis.analysis_routes import analysis 
+from backend.posts.posts_routes import posts
+from backend.Admin.admin_routes import admins
+from backend.users.users_routes import users
+from backend.items.items_routes import items
+from backend.offers.offer_routes import offers
+from backend.ratings.rating_routes import ratings
+from backend.reports.report_routes import reports
 import os
 from dotenv import load_dotenv
 
@@ -41,12 +45,18 @@ def create_app():
     # Register the routes from each Blueprint with the app object
     # and give a url prefix to each
     app.logger.info('current_app(): registering blueprints with Flask app object.')   
-    app.register_blueprint(simple_routes)
-    app.register_blueprint(customers,   url_prefix='/c')
-    app.register_blueprint(products,    url_prefix='/p')
     app.register_blueprint(employees,   url_prefix='/e') 
     app.register_blueprint(analysis, url_prefix='/a')
-
+    app.logger.info('current_app(): registering blueprints with Flask app object.')
+    app.register_blueprint(posts,       url_prefix='/z')
+    # blueprint for admins
+    app.register_blueprint(admins,      url_prefix = '/admins')
+    app.register_blueprint(users,       url_prefix='/users')
+    app.register_blueprint(items, url_prefix='/items')
+    app.register_blueprint(offers, url_prefix='/offers')
+    app.register_blueprint(ratings, url_prefix='/ratings')
+    app.register_blueprint(reports, url_prefix='/reports')
+    
     # Don't forget to return the app object
     return app
 
