@@ -430,6 +430,57 @@ INSERT INTO Rating (rating_number,rated_by,rating_for, offer_id) VALUES
 ( 5, 1, 2,1),
 (4, 3, 1,3);
 
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (5, 13, 36, 48);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (4, 26, 16, 27);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (3, 26, 35, 25);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (1, 12, 25, 24);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (2, 37, 28, 32);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (2, 23, 27, 28);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (1, 24, 18, 25);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (1, 26, 13, 31);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (4, 38, 10, 36);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (3, 23, 28, 31);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (4, 40, 3, 10);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (3, 19, 29, 14);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (1, 7, 19, 16);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (4, 13, 21, 36);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (1, 4, 32, 28);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (5, 20, 13, 35);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (2, 5, 21, 15);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (5, 27, 16, 36);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (2, 19, 29, 42);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (3, 33, 36, 5);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (3, 5, 33, 7);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (2, 5, 12, 34);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (1, 6, 21, 44);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (1, 6, 16, 21);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (4, 26, 37, 8);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (5, 30, 9, 6);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (1, 20, 8, 28);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (3, 18, 22, 10);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (2, 15, 24, 26);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (3, 22, 20, 10);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (1, 39, 3, 38);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (2, 6, 9, 19);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (4, 37, 28, 16);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (2, 13, 34, 4);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (5, 13, 40, 3);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (3, 37, 25, 48);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (2, 25, 38, 44);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (2, 29, 40, 12);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (1, 14, 28, 39);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (3, 1, 14, 4);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (5, 32, 6, 46);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (1, 37, 2, 15);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (5, 12, 20, 26);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (5, 5, 3, 26);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (2, 10, 11, 12);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (3, 21, 12, 14);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (3, 14, 31, 7);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (5, 3, 21, 32);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (3, 8, 27, 48);
+insert into Rating (rating_number, rated_by, rating_for, offer_id) values (2, 3, 23, 33);
+
 # ---------------------------------------------------------------------- #
 # Add table "SME"                                                 #
 # ---------------------------------------------------------------------- #
