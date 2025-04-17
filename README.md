@@ -43,17 +43,18 @@ This project uses RBAC (Role-Based Access Control) to allow users to assume diff
 
 Each of these four users have their own set of pages for which they can access. 
 
-User (Emma Johnson):
+**User (Emma Johnson)**:
 
-System Administrator (Chloe Smith):
+**System Administrator (Chloe Smith)**:
 As a System Administrator, Chloe has access to view all reports data. This means any reports made either by a user or an administrator of the app regarding a user, an item, or a technical issue. Chloe also has the ability to update the status of user reports, or delete them entirely as she sees fit. In addition, Chloe can create an Admin Report if she notices something herself. Finally, Chloe can delete items that are listed on the app in the case that they are reported and are found fraudulent or innapropriate in some way.
 
-Social Media Employee (Daniel Kimmel):
+**Social Media Employee (Daniel Kimmel)**:
 
 Social Media Employees, like Daniel, currently can manage all social media posts, create a new social media post, and view his own profile information. When managing all social media posts, he has the option to change post visibility (hide/show) for users, delete posts, or view a single post in more detail and edit a post's content. Editing a post requires viewing said post first.
 
-App Data Analyst (Barney): 
+**App Data Analyst (Barney)**:
 As a Data Analyst, Barney can view different metrics related to user engagement, user reports, item popularity, and offer status distribution to view ongoing trends on the app. After analyzing these metrics, Barney can write a new analysis to make note of these trends and view previous analyses to track the progress of the app. 
+
 
 
 ## Contributors
