@@ -41,16 +41,16 @@ if posts:
             with left:
                 st.subheader(post['post_title'], False)
                 st.markdown(f"**{post['description']}**")
-                st.markdown(f"Post visibility: {post['show']}")
+                st.markdown(f"Post visibility: {'Show' if post['show'] else 'Hidden'}")
                 st.markdown(f"Author: {post['createdBy']}")
                 st.markdown(f"Created on {post['createdDate']}")
             with right:
                 # View post button
-                if st.button("View post", key=f"button_view_{post['post_id']}"):
-                    st.session_state.selected_post = post
+                if st.button("👀 View post", key=f"button_view_{post['post_id']}"):
+                    st.session_state.selected_post = post['post_id']
                     st.switch_page("pages/SME_Single_Post.py")
                 # Hide/show button
-                if st.button("Hide/Show", key=f"button_hide_{post['post_id']}"):
+                if st.button('🌑 Hide' if post['show'] else '🌞 Show', key=f"button_hide_{post['post_id']}"):
                     update_post_visibility(post['post_id'], post['show'])
                 # Delete button
                 if st.button("❌ Delete", key=f"button_delete_{post['post_id']}"):

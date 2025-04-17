@@ -514,6 +514,7 @@ CREATE TABLE Posts(
     post_id int NOT NULL PRIMARY KEY AUTO_INCREMENT PRIMARY KEY,
     post_title varchar(75) NOT NULL,
     description tinytext,
+    full_post varchar(1000),
     `show` bool,
     posted_by int NOT NULL,
     createdDate datetime DEFAULT CURRENT_TIMESTAMP,
@@ -523,10 +524,10 @@ CREATE TABLE Posts(
 # ---------------------------------------------------------------------- #
 # Insert into "Posts"                                                 #
 # ---------------------------------------------------------------------- #
-INSERT INTO Posts (post_title,description,`show`, posted_by) VALUES
-('Sellers to Watch Out For', 'Based on app analyst data, I will be telling you who some of the highest performing users have been over the last week.', TRUE,2),
-('Hottest Items to Trade Right Now', 'Based on app analyst data, here are some items that are always being traded for.', TRUE,1),
-( 'Employee Picks: Top Items Looking for a Trade', 'Here are some of my favorite items from the Employee Picks Section - Check them out while they are available.', FALSE,3);
+INSERT INTO Posts (post_title,description, full_post, `show`, posted_by) VALUES
+('Sellers to Watch Out For', 'Based on app analyst data, I will be telling you who some of the highest performing users have been over the last week.', 'Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc.', TRUE, 2),
+('Hottest Items to Trade Right Now', 'Based on app analyst data, here are some items that are always being traded for.', 'Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.', TRUE,1),
+('Employee Picks: Top Items Looking for a Trade', 'Here are some of my favorite items from the Employee Picks Section - Check them out while they are available.', 'Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', FALSE,3);
 # ---------------------------------------------------------------------- #
 
 # ---------------------------------------------------------------------- #

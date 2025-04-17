@@ -15,7 +15,7 @@ posts = Blueprint('posts', __name__)
 @posts.route('/', methods=['GET'])
 def get_posts():
     query = '''SELECT p.post_id AS 'post_id', p.post_title AS 'post_title', p.description AS 'description', 
-                p.`show` AS 'show', CONCAT(s.firstName, " ", s.lastName) AS 'createdBy', p.createdDate AS 'createdDate' 
+                p.full_post AS 'full_post', p.`show` AS 'show', CONCAT(s.firstName, " ", s.lastName) AS 'createdBy', p.createdDate AS 'createdDate' 
                 FROM Posts p
                     JOIN SME s ON s.sme_id = p.posted_by
                 ORDER BY createdDate DESC;
@@ -52,12 +52,13 @@ def add_new_post():
     #extracting the variable
     post_title = the_data['post_title']
     description = the_data['description']
+    full_post = the_data['full_post']
     show = the_data['show']
     posted_by = the_data['posted_by']
     
     query = f'''
-        INSERT INTO Posts (post_title, description, `show`, posted_by)
-        VALUES ('{post_title}', '{description}', {show}, {posted_by});
+        INSERT INTO Posts (post_title, description, full_post, `show`, posted_by)
+        VALUES ('{post_title}', '{description}', '{full_post}', {show}, {posted_by});
     '''
     current_app.logger.info(query)
 
@@ -70,11 +71,14 @@ def add_new_post():
     response.status_code = 200
     return response
 
-@posts.route('/<post_id>', methods=['GET'])
+#------------------------------------------------------------
+# Get post content of a particular postID
+@posts.route('/<postID>', methods=['GET'])
 def get_post(postID):
-    query = f'''SELECT post_id, post_title, description, 
-                `show`, posted_by, createdDate 
-                FROM Posts
+    query = f'''SELECT p.post_id AS 'post_id', p.post_title AS 'post_title', p.description AS 'description', 
+                p.full_post AS 'full_post', p.`show` AS 'show', CONCAT(s.firstName, " ", s.lastName) AS 'createdBy', p.createdDate AS 'createdDate'
+                FROM Posts p
+                    JOIN SME s ON s.sme_id = p.posted_by
                 WHERE post_id = {postID};
     '''
     cursor = db.get_db().cursor()
@@ -86,12 +90,29 @@ def get_post(postID):
     return response
 
 #------------------------------------------------------------
-# # Edit all content of a post with particular postID
-# @posts.route('/<postID>', methods=['PUT'])
-# def update_post(postID):
-#     the_data = request.json
+# # Edit written content of a post with particular postID
+@posts.route('/<postID>', methods=['PUT'])
+def update_post(postID):
+    the_data = request.json
 
+    new_title = the_data['post_title']
+    new_description = the_data['description']
+    new_full_post = the_data['full_post']
 
+    query = f'''UPDATE Posts 
+    SET post_title = '{new_title}',
+    description = '{new_description}',
+    full_post = '{new_full_post}'
+    WHERE post_id = {postID};
+    '''
+    
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
+
+    response = make_response("Successfully updated post content")
+    response.status_code = 200
+    return response
 
 #------------------------------------------------------------
 # Show/hide post with particular postID
