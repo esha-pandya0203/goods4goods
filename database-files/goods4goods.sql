@@ -480,7 +480,7 @@ CREATE TABLE Rating(
     offer_id int NOT NULL,
     FOREIGN KEY (rated_by) REFERENCES User(user_id),
     FOREIGN KEY (rating_for) REFERENCES User(user_id),
-    FOREIGN KEY (offer_id) REFERENCES Offer(offer_id)
+    FOREIGN KEY (offer_id) REFERENCES Offer(offer_id) ON DELETE CASCADE
 );
 
 # ---------------------------------------------------------------------- #
