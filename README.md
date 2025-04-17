@@ -5,10 +5,15 @@ Goods4Goods is a data driven trade-based app where you can post items you no lon
 ## Table of Contents
 
 [Prerequisites](#Prerequisites)
+
 [Current Project Components](#current-project-components)
+
 [Installation](#Installation)
+
 [Demo](#demo)
+
 [Usage](#usage)
+
 [Contributors](#Contributors)
 
 ## Prerequisites
@@ -64,6 +69,9 @@ Social Media Employees, like Daniel, currently can manage all social media posts
 
 ## Contributors
 Francesca Cambareri (cambareri.f@northeastern.edu)
+
 Erika Ding (ding.er@northeastern.edu)
+
 Anusha Narang (narang.an@northeastern.edu)
+
 Esha Pandya (pandya.e@northeastern.edu )
