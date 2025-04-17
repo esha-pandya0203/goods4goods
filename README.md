@@ -52,8 +52,8 @@ Social Media Employee (Daniel Kimmel):
 
 Social Media Employees, like Daniel, currently can manage all social media posts, create a new social media post, and view his own profile information. When managing all social media posts, he has the option to change post visibility (hide/show) for users, delete posts, or view a single post in more detail and edit a post's content. Editing a post requires viewing said post first.
 
-App Data Analyst (Barney):
-
+App Data Analyst (Barney): 
+As a Data Analyst, Barney can view different metrics related to user engagement, user reports, item popularity, and offer status distribution to view ongoing trends on the app. After analyzing these metrics, Barney can write a new analysis to make note of these trends and view previous analyses to track the progress of the app. 
 
 
 ## Contributors
