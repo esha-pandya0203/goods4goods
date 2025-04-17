@@ -132,6 +132,8 @@ def deactivate_item():
     response.status_code = 200
     return response
 
+# ------------------------------------------------------------
+# Get information about the status distribution of all offers 
 @offers.route('/metrics/status', methods=['GET']) 
 def get_trade_status_metrics():
     query = '''

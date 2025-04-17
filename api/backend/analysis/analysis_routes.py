@@ -16,7 +16,7 @@ from datetime import datetime, timedelta
 analysis = Blueprint('analysis', __name__)
 
 #------------------------------------------------------------
-# Get all report information 
+# Get all analysis information 
 @analysis.route('/analysis', methods=['GET'])
 def get_all_reports(): 
     query = '''
@@ -35,9 +35,7 @@ def get_all_reports():
 
     return response
 #------------------------------------------------------------
-# This is a POST route to add a new product.
-# Remember, we are using POST routes to create new entries
-# in the database. 
+# This is a POST route to add a new analysis.
 @analysis.route('/analysis', methods=['POST'])
 def add_new_product():
     the_data = request.json

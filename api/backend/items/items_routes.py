@@ -129,6 +129,8 @@ def update_customer():
     db.get_db().commit()
     return 'item updated!'
 
+# ------------------------------------------------------------
+# Get information about the top traded items 
 @items.route('/metrics/top-items', methods=['GET']) 
 def get_top_items():
     query = '''
@@ -148,6 +150,8 @@ def get_top_items():
 
     return response
 
+# ------------------------------------------------------------
+# Get information about the overall completed trades 
 @items.route('/metrics/completed-trades', methods=['GET'])
 def get_completed_trades():
     query = '''
