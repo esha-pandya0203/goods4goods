@@ -112,7 +112,7 @@ def deactivate_item():
     cursor = db.get_db().cursor()
 
     # Change active status of items based on offer status
-    if status == "Accepted":
+    if status == "Accepted" or status == "In Progress":
          cursor.execute('UPDATE Item SET active = 0 WHERE item_id = %s', (item_offered_id,))
          cursor.execute('UPDATE Item SET active = 0 WHERE item_id = %s', (item_requested_id,))
     elif status == "Rejected" or status == "Pending":

@@ -8,6 +8,7 @@ from modules.nav import SideBarLinks
 st.set_page_config(layout = 'wide')
 SideBarLinks()
 
+
 def get_user_offers(user_id):
     response = requests.get(f"http://api:4000/offers/{user_id}")
     if response.status_code == 200:
@@ -64,6 +65,7 @@ def orgazine_offers(offers, user_id):
     received_offers = []
     proposed_offers = []
     rejected_offers = []
+    in_progress_offers = []
     accepted_offers = []
 
     for offer in offers:
@@ -71,21 +73,23 @@ def orgazine_offers(offers, user_id):
             rejected_offers.append(offer)
         elif offer["Status"].lower() == "accepted":
             accepted_offers.append(offer)
+        elif offer["Status"].lower() == "in-progress":
+            in_progress_offers.append(offer)
         elif offer["Offering Trader ID"] == user_id:
             proposed_offers.append(offer)
         else:
             received_offers.append(offer)
 
-    return received_offers, proposed_offers, rejected_offers, accepted_offers
+    return received_offers, proposed_offers, in_progress_offers, rejected_offers, accepted_offers
 
 user_id = st.session_state["user_id"]
 
 # Fetch all offers for this user
-received_offers, proposed_offers, rejected_offers, accepted_offers = orgazine_offers(get_user_offers(user_id), user_id)
+received_offers, proposed_offers, in_progress_offers, rejected_offers, accepted_offers = orgazine_offers(get_user_offers(user_id), user_id)
 
 # Tabs to view different offers
 st.title("Your Offers")
-tab1, tab2, tab3, tab4 = st.tabs(["📥 Received", "📤 Proposed", "❌ Rejected", "✅ Accepted"])
+tab1, tab2, tab3, tab4, tab5 = st.tabs(["📥 Received", "📤 Proposed", "❌ Rejected", "⏭️ In Progress", "✅ Accepted"])
 
 # Function to display offers
 def display_offer_card(offer, user_role, allow_status_change=False, restrict_status_options=None):
@@ -112,7 +116,7 @@ def display_offer_card(offer, user_role, allow_status_change=False, restrict_sta
             st.switch_page('pages/Report_User_Form.py')
 
     if allow_status_change:
-        options = restrict_status_options or ["Pending", "Accepted", "Rejected"]
+        options = restrict_status_options or ["Pending", "Accepted", "Rejected", "In-Progress"]
         new_status = st.selectbox(
             f"**Update status:**",
             options,
@@ -160,8 +164,20 @@ with tab3:
             with st.container():
                 display_offer_card(offer, role)
 
-# Tab 4: Accepted Offers
+
+# Tab 4: In Progress Offers
 with tab4:
+    st.header("In Progress Offers")
+    if not in_progress_offers:
+        st.info("No In Progress Offers.")
+    else:
+        for offer in in_progress_offers:
+            role = "received" if offer["Receiving Trader ID"] == user_id else "proposed"
+            with st.container():
+                display_offer_card(offer, role, allow_status_change=True, restrict_status_options=["Accepted"] )
+
+# Tab 5: Accepted Offers
+with tab5:
     st.header("Accepted Offers")
     if not accepted_offers:
         st.info("No accepted offers.")

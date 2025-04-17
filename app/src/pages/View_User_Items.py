@@ -36,7 +36,10 @@ def add_new_item(posted_by, description, product_name, image_url, target_price):
 
 # function to delete an item
 def delete_item(item_id):
-    response = requests.delete(f"http://api:4000/items/{item_id}")
+    payload = {
+        "item_id": item_id
+    }
+    response = requests.delete(f"http://api:4000/items", json=payload)
     if response.status_code == 200:
         #st.success("Item deleted! Will be removed from list on next visit to page.")
         st.rerun()
@@ -49,9 +52,10 @@ def edit_item(new_name, new_desc, new_price, new_img, item_id):
         "product_name": new_name,
         "description": new_desc,
         "target_price": new_price,
-        "image_url": new_img
+        "image_url": new_img,
+        "item_id": item_id
     }
-    response = requests.put(f"http://api:4000/items/{item_id}", json=payload)
+    response = requests.put(f"http://api:4000/items", json=payload)
     if response.status_code == 200:
         #st.success("Item updated! Changes will be reflected on next visit to page.")
         st.rerun()

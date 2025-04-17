@@ -94,12 +94,16 @@ def add_new_item():
 
 #------------------------------------------------------------
 # Deactivate item with particular itemID
-@items.route('/<itemId>', methods=['DELETE'])
-def deactivate_item(itemId):
+@items.route('/', methods=['DELETE'])
+def deactivate_item():
     current_app.logger.info('DELETE /items route')
+    the_data = request.json
+    current_app.logger.info(the_data)
+
+    item_id = the_data['item_id']
     cursor = db.get_db().cursor()
 
-    cursor.execute('DELETE FROM Item WHERE item_id = {0}'.format(itemId))
+    cursor.execute('DELETE FROM Item WHERE item_id = {0}'.format(item_id))
     db.get_db().commit()
     
     response = make_response("Successfully removed product")
@@ -108,17 +112,18 @@ def deactivate_item(itemId):
 
 #------------------------------------------------------------
 # Update item into for an item with particular itemID
-@items.route('/<itemId>', methods=['PUT'])
-def update_customer(itemId):
+@items.route('/', methods=['PUT'])
+def update_customer():
     current_app.logger.info('PUT /customers route')
     item_info = request.json
     description = item_info['description']
     product_name = item_info['product_name']
     image_url = item_info['image_url']
     target_price = item_info['target_price']
+    item_id = item_info['item_id']
 
     query = 'UPDATE Item SET description = %s, product_name = %s, image_url = %s, target_price = %s  where item_id = %s'
-    data = (description, product_name, image_url, target_price, itemId)
+    data = (description, product_name, image_url, target_price, item_id)
     cursor = db.get_db().cursor()
     r = cursor.execute(query, data)
     db.get_db().commit()

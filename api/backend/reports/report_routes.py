@@ -26,8 +26,8 @@ def postReport():
     offer_id = the_data['offer_id']
 
     query = f'''
-        INSERT INTO UserReport (report_code, description, reporter_id, reported_id, offer_id) 
-        VALUES('{code}', '{description}', {reporter_id}, {reported_id}, {offer_id})
+        INSERT INTO UserReport (report_code, description, reporter_id, reported_id, offer_id, reviewer_id) 
+        VALUES('{code}', '{description}', {reporter_id}, {reported_id}, {offer_id}, 1)
     '''
     
     current_app.logger.info(query)
