@@ -10,7 +10,7 @@ from backend.db_connection import db
 # routes.
 # Routes
 #------------------------------------------------------------
-#   URL             |  Method  | Purpose                            |
+#   URL             |  Method  | Purpose                     
 #------------------------------------------------------------
 #   /               |   GET    |  Get all posts
 #   /               |   POST   |  Create a new post

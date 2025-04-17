@@ -5,9 +5,15 @@ Goods4Goods is a data driven trade-based app where you can post items you no lon
 ## Table of Contents
 
 [Prerequisites](#Prerequisites)
+
 [Current Project Components](#current-project-components)
-[Installation] (#installation)
-[Usage] (#usage)
+
+[Installation](#Installation)
+
+[Demo](#demo)
+
+[Usage](#usage)
+
 [Contributors](#Contributors)
 
 ## Prerequisites
@@ -37,6 +43,11 @@ Currently, there are three major components that will each run in their own Dock
 4. Once the containers have been created, and our being run, go to "localhost:8501" in the browser of your choosing to access goods4goods.
 
 
+## Demo
+
+Link to our demo: https://drive.google.com/file/d/1gsCdsV5zsWeWuaxMSI0h2tybzUaWOk5w/view?usp=drive_link
+
+
 ## Usage
 
 This project uses RBAC (Role-Based Access Control) to allow users to assume different possible roles within the app without actually using user authentication. For Goods4Goods, these roles include: A User (Emma Johnson), A System Adminstrator (Chloe Smith), An App Data Analyst (Barney), and a Social Media Employee (Daniel Kimmel)
@@ -58,6 +69,9 @@ Social Media Employees, like Daniel, currently can manage all social media posts
 
 ## Contributors
 Francesca Cambareri (cambareri.f@northeastern.edu)
+
 Erika Ding (ding.er@northeastern.edu)
+
 Anusha Narang (narang.an@northeastern.edu)
+
 Esha Pandya (pandya.e@northeastern.edu )
