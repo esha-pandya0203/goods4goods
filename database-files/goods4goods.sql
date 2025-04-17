@@ -319,7 +319,7 @@ CREATE TABLE `Item` (
 INSERT INTO Item (posted_by, description, product_name, image_url, target_price) VALUES
 (1, 'Used coffee table in good condition.', 'Coffee Table', 'https://i.pinimg.com/736x/d8/c2/c9/d8c2c97d1ad844f0064afe00e3516920.jpg', 50),
 (2, 'Gently used sofa set, comfortable.', 'Sofa Set', 'https://i.pinimg.com/736x/18/08/dc/1808dcedf3ad854977805c15d45d557c.jpg', 200),
-(3, 'Vintage desk lamp, perfect for home office.', 'Desk Lamp', 'https://i.pinimg.com/736x/a1/2d/85/a12d8585003e9a171698980a0e859bb0.jpg', 30),
+(39, 'Vintage desk lamp, perfect for home office.', 'Desk Lamp', 'https://i.pinimg.com/736x/a1/2d/85/a12d8585003e9a171698980a0e859bb0.jpg', 30),
 (2, 'Modern recliner in excellent condition.', 'Recliner Chair', 'https://i.pinimg.com/474x/4b/d4/09/4bd4094db0140173aa820bcb242888d8.jpg', 180),
 (29, 'Stylish round dining table, slightly used.', 'Dining Table', 'https://i.pinimg.com/474x/0c/44/1c/0c441c0084f0fc0d2fe6cba8a53cd98c.jpg', 120),
 (29, 'Single bed frame, lightly used with storage.', 'Bed Frame', 'https://i.pinimg.com/474x/80/64/79/806479b6c6ffb97c70590758967db3c9.jpg', 75),
@@ -403,8 +403,8 @@ CREATE TABLE `Offer` (
     FOREIGN KEY (offering_user) REFERENCES User (user_id),
     FOREIGN KEY (receiving_user) REFERENCES User (user_id),
     FOREIGN KEY (status) REFERENCES StatusCodes (status_code_id),
-    FOREIGN KEY (item_offered_id) REFERENCES Item (item_id) ON DELETE RESTRICT,
-    FOREIGN KEY (item_requested_id) REFERENCES Item (item_id) ON DELETE RESTRICT
+    FOREIGN KEY (item_offered_id) REFERENCES Item (item_id) ON DELETE CASCADE,
+    FOREIGN KEY (item_requested_id) REFERENCES Item (item_id) ON DELETE CASCADE
 );
 
 # ---------------------------------------------------------------------- #
