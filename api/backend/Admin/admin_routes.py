@@ -102,20 +102,6 @@ def postReport():
     response.status_code = 200
     return response
 
-# # As a system administrator I need to be able to delete user biographies or change user biographies if they’re inappropriate in order to not allow users to have anything that violates the app’s rules in their biography.
-# #- Remove USER bio - PUT Bio = NULL
-# @admins.route('/UserBio/<user_id>', methods = ['PUT'])
-# def deleteBio(user_id):
-#     current_app.logger.info('PUT /UserBio/<user_id> route')
-#     user_info = request.json
-#     bio = user_info['bio']
-
-#     query = 'UPDATE User SET bio = NULL WHERE user_id = {0}'.format(user_id)
-#     cursor = db.get_db().cursor()
-#     cursor.execute(query)
-#     db.get_db().commit()
-
-#     return 'User bio deleted.'
 
 
 # Update a UserReport status - accepted/rejected?
