@@ -8,6 +8,17 @@ from backend.db_connection import db
 #------------------------------------------------------------
 # Create a new Blueprint object, which is a collection of 
 # routes.
+# Routes
+#------------------------------------------------------------
+#   URL             |  Method  | Purpose                            |
+#------------------------------------------------------------
+#   /               |   GET    |  Get all posts
+#   /               |   POST   |  Create a new post
+#   /<postID>       |   GET    |  Get a particular post
+#   /<postID>       |   PUT    |  Edit a particular post
+#   /show/<postID>  |   PUT    |  Change show/hide of a post
+#   /<postID>       |   DELETE |  Delete a particular post
+#------------------------------------------------------------
 posts = Blueprint('posts', __name__)
 
 #------------------------------------------------------------
