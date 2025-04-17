@@ -6,8 +6,9 @@ Goods4Goods is a data driven trade-based app where you can post items you no lon
 
 [Prerequisites](#Prerequisites)
 [Current Project Components](#current-project-components)
-[Installation] (#installation)
-[Usage] (#usage)
+[Installation](#Installation)
+[Demo](#demo)
+[Usage](#usage)
 [Contributors](#Contributors)
 
 ## Prerequisites
@@ -35,6 +36,11 @@ Currently, there are three major components that will each run in their own Dock
    3. `docker compose up db -d` only start the database container (replace db with api or app for the other two services as needed)
    4. `docker compose stop` to "turn off" the containers but not delete them.
 4. Once the containers have been created, and our being run, go to "localhost:8501" in the browser of your choosing to access goods4goods.
+
+
+## Demo
+
+Link to our demo: https://drive.google.com/file/d/1gsCdsV5zsWeWuaxMSI0h2tybzUaWOk5w/view?usp=drive_link
 
 
 ## Usage
