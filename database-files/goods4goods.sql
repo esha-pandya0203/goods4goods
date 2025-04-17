@@ -328,7 +328,7 @@ INSERT INTO Item (posted_by, description, product_name, image_url, target_price)
 (3, 'Compact microwave, works perfectly.', 'Microwave', 'https://i.pinimg.com/474x/c7/13/3d/c7133d0600780562444e21e03e8abce7.jpg', 50),
 (3, 'Full-size bookshelf, light wood finish.', 'Bookshelf', 'https://i.pinimg.com/474x/f8/77/09/f877099a1aba59b8e40755ef7efed05a.jpg', 90),
 (1, 'Ceramic vase with floral design.', 'Ceramic Vase', 'https://i.pinimg.com/474x/ff/dd/41/ffdd411ef13cb54eacc9ea04127efca1.jpg', 25),
-(4, 'Men’s leather jacket, barely worn.', 'Leather Jacket', 'https://i.pinimg.com/474x/81/73/aa/8173aa98571a13e146605d0ee9d76837.jpg', 100),
+(4, 'Men''s leather jacket, barely worn.', 'Leather Jacket', 'https://i.pinimg.com/474x/81/73/aa/8173aa98571a13e146605d0ee9d76837.jpg', 100),
 (5, 'Set of 4 wooden dining chairs.', 'Dining Chairs', 'https://i.pinimg.com/474x/47/ac/e3/47ace362a3a9faade39e6ec1f5bbb710.jpg', 80),
 (6, 'Wall-mounted coat rack with hooks.', 'Coat Rack', 'https://i.pinimg.com/474x/1e/b1/79/1eb1792d3419cf4f5627d1a5e3935603.jpg', 20),
 
@@ -343,7 +343,7 @@ INSERT INTO Item (posted_by, description, product_name, image_url, target_price)
 (1, 'Vintage suitcase, leather straps.', 'Vintage Suitcase', 'https://i.pinimg.com/474x/8f/95/ae/8f95ae8c9d5aeb45407bc3f1fd870427.jpg', 50),
 (2, 'Pet carrier backpack.', 'Pet Backpack', 'https://i.pinimg.com/474x/01/f8/1d/01f81db19e5803cac8830ffb43290847.jpg', 30),
 (5, 'Gaming chair with adjustable height.', 'Gaming Chair', 'https://i.pinimg.com/474x/60/91/a7/6091a7cfdcd850c872f570a1375a52aa.jpg', 120),
-(1, 'Women’s trench coat, size M.', 'Trench Coat', 'https://i.pinimg.com/474x/e2/ca/19/e2ca19d5ee51d36b06ba1dd6b6c4d9ab.jpg', 55),
+(1, 'Women''s trench coat, size M.', 'Trench Coat', 'https://i.pinimg.com/474x/e2/ca/19/e2ca19d5ee51d36b06ba1dd6b6c4d9ab.jpg', 55),
 (3, 'Pair of roller skates, size 9.', 'Roller Skates', 'https://i.pinimg.com/474x/7c/62/19/7c6219eda696f6222dccc86fff0bfa34.jpg', 45),
 
 (2, 'Laptop stand with adjustable angle.', 'Laptop Stand', 'https://i.pinimg.com/474x/16/2b/d1/162bd1de06ecc3ffa7d45b13f50b4c81.jpg', 20),

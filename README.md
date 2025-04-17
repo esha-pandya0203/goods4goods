@@ -50,6 +50,8 @@ As a System Administrator, Chloe has access to view all reports data. This means
 
 Social Media Employee (Daniel Kimmel):
 
+Social Media Employees, like Daniel, currently can manage all social media posts, create a new social media post, and view his own profile information. When managing all social media posts, he has the option to change post visibility (hide/show) for users, delete posts, or view a single post in more detail and edit a post's content. Editing a post requires viewing said post first.
+
 App Data Analyst (Barney):
 
 
