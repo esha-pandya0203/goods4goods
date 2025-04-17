@@ -55,7 +55,8 @@ Social Media Employees, like Daniel, currently can manage all social media posts
 **App Data Analyst (Barney)**:
 As a Data Analyst, Barney can view different metrics related to user engagement, user reports, item popularity, and offer status distribution to view ongoing trends on the app. After analyzing these metrics, Barney can write a new analysis to make note of these trends and view previous analyses to track the progress of the app. 
 
-
+**User Persona (Emma)**:
+As a User, Emma can view, upload, edit, and delete her items on the website, as well as view other users’ items and profiles. She can also manage or create trade offers, and report and rate trades that she has participated in.
 
 ## Contributors
 Francesca Cambareri (cambareri.f@northeastern.edu)

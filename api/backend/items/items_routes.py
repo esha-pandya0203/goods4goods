@@ -13,22 +13,6 @@ from backend.db_connection import db
 items = Blueprint('items', __name__)
 
 #------------------------------------------------------------
-# Get all active items from the system
-@items.route('/', methods=['GET'])
-def get_items():
-    current_app.logger.info('GET /items route')
-    cursor = db.get_db().cursor()
-    cursor.execute('''SELECT * FROM Item 
-                    JOIN User ON Item.posted_by = User.user_id
-                    WHERE active = 1''')
-    
-    theData = cursor.fetchall()
-    
-    the_response = make_response(jsonify(theData))
-    the_response.status_code = 200
-    return the_response
-
-#------------------------------------------------------------
 # Get all active items from the system a user can make offers for
 @items.route('/listings/<userId>', methods=['GET'])
 def get_listing_items(userId):
@@ -169,3 +153,19 @@ def get_completed_trades():
     response.status_code = 200
 
     return response
+
+#------------------------------------------------------------
+# Get all active items from the system
+#@items.route('/', methods=['GET'])
+#def get_items():
+#    current_app.logger.info('GET /items route')
+#    cursor = db.get_db().cursor()
+#    cursor.execute('''SELECT * FROM Item 
+#                    JOIN User ON Item.posted_by = User.user_id
+#                    WHERE active = 1''')
+#    
+#    theData = cursor.fetchall()
+#    
+#    the_response = make_response(jsonify(theData))
+#    the_response.status_code = 200
+#    return the_response
